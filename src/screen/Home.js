@@ -15,7 +15,7 @@ const Home = (props) => {
         <View style={styles.Container}>
             <BottomHeader navigation={props.navigation} btm={80} />
             <Inputfield place='Search Now' />
-            <ScrollView style={{ flexGrow: 0 }}  >
+            <ScrollView style={{ paddingHorizontal:20 }}   >
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                     <TouchableOpacity style={{ padding: 20 }}><Text style={{ fontFamily: 'sp', fontSize: 12 }}>Chair.</Text></TouchableOpacity>
                     <TouchableOpacity style={{ padding: 20 }}><Text>Cupboard</Text></TouchableOpacity>
@@ -54,12 +54,36 @@ const Home = (props) => {
                     <Card />
                     <Card />
                 </View>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+                    <Card />
+                    <Card />
+                </View>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+                    <Card />
+                    <Card />
+                </View>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+                    <Card />
+                    <Card />
+                </View>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+                    <Card />
+                    <Card />
+                </View>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+                    <Card />
+                    <Card />
+                </View>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
+                    <Card />
+                    <Card />
+                </View>
            
+
+
+
+
             </ScrollView>
-
-
-
-
         </View>
 
 
@@ -68,16 +92,7 @@ const Home = (props) => {
 
 const styles = StyleSheet.create({
 
-    Container: {
-
-        backgroundColor: '#fff',
-        paddingHorizontal: 20
-
-
-
-
-    },
-
+    
 
 
 

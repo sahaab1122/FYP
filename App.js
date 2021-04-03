@@ -56,8 +56,7 @@ class App extends React.Component {
         <NavigationContainer>
 
           <Stack.Navigator
-            initialRouteName="Home"
-            screenOptions={{ headerShown: false }}>
+            initialRouteName="Home" headerMode='none'>
             <Stack.Screen name="AddToCart" component={AddToCart} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
