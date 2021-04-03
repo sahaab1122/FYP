@@ -15,7 +15,7 @@ const Home = (props) => {
         <View style={styles.Container}>
             <BottomHeader navigation={props.navigation} btm={80} />
             <Inputfield place='Search Now' />
-            <ScrollView style={{ flexGrow: 0 }}  >
+            <ScrollView    >
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                     <TouchableOpacity style={{ padding: 20 }}><Text style={{ fontFamily: 'sp', fontSize: 12 }}>Chair.</Text></TouchableOpacity>
                     <TouchableOpacity style={{ padding: 20 }}><Text>Cupboard</Text></TouchableOpacity>
@@ -27,12 +27,12 @@ const Home = (props) => {
                 </ScrollView>
 
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}  >
-                 {
-                     Array(5).fill().map((item,index)=>
-                     <Card style={{marginRight:10 }} key={index} />
-                     )
-                 }
-                 
+                    {
+                        Array(5).fill().map((item, index) =>
+                            <Card style={{ marginRight: 10 }} key={index} />
+                        )
+                    }
+
 
                 </ScrollView>
                 <View>
@@ -54,7 +54,7 @@ const Home = (props) => {
                     <Card />
                     <Card />
                 </View>
-           
+
             </ScrollView>
 
 
@@ -69,7 +69,7 @@ const Home = (props) => {
 const styles = StyleSheet.create({
 
     Container: {
-
+        flex: 1,
         backgroundColor: '#fff',
         paddingHorizontal: 20
 
