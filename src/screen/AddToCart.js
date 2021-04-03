@@ -26,15 +26,15 @@ class AddToCart extends React.Component {
 
             </View>
             <View>
-            <Text style={{ paddingLeft: 17,   fontSize: 28, fontFamily: 'Poppins' }}>
+            <Text style={{ paddingLeft: 20,   fontSize: 28, fontFamily: 'Poppins' }}>
                     Premium Chair
               </Text>
-              <Text style={{ paddingLeft: 17,   fontSize: 15, fontFamily: 'Poppins',color:'#5A5A5A' }}>
+              <Text style={{ paddingLeft: 20,   fontSize: 15, fontFamily: 'Poppins',color:'#5A5A5A' }}>
                     Subheaded Chair Content.
               </Text>
             </View>
             <View style={{position: 'absolute',zIndex:10,bottom:80,alignSelf:'center',textAlign:'center',width:'80%'    }}>
-            <Btn onPress={()=>this.props.navigation.navigate('PlaceOrder')} text="Add to Cart" color='#000DAE' width="100%" />
+            <Btn onPress={()=>this.props.navigation.navigate('MyCart')} text="Add to Cart" color='#000DAE' width="100%" />
             </View>
         </View>
 

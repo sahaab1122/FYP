@@ -1,5 +1,5 @@
 import React, { Profiler } from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, TransitionPresets, TransitionSpecs } from '@react-navigation/stack';
 
 import { NavigationContainer } from '@react-navigation/native';
 import * as Font from 'expo-font'
@@ -9,7 +9,7 @@ import * as Font from 'expo-font'
 import AddToCart from './src/screen/AddToCart';
 import Home from './src/screen/Home';
 import Login from './src/screen/Login'
-import MyCart from './src/screen/Mycart';
+import MyCart from './src/screen/MyCart';
 import Next from './src/screen/Next';
 import PlaceOrder from './src/screen/PlaceOrder'
 import Register from './src/screen/Register';
@@ -27,6 +27,7 @@ import Middle from './src/component/Middle';
 import Smallchair from './src/component/Smallchair';
 
 import { ActivityIndicator, Text, View } from 'react-native';
+
 
 
 const Stack = createStackNavigator();
@@ -55,8 +56,8 @@ class App extends React.Component {
       this.state.fontsLoaded ?
         <NavigationContainer>
 
-          <Stack.Navigator
-            initialRouteName="Home" headerMode='none'>
+          <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
+            initialRouteName="Next" headerMode='none' >
             <Stack.Screen name="AddToCart" component={AddToCart} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
@@ -65,7 +66,7 @@ class App extends React.Component {
             <Stack.Screen name="PlaceOrder" component={PlaceOrder} />
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="RegisterLogin" component={RegisterLogin} />
-            
+
           </Stack.Navigator>
         </NavigationContainer>
         :

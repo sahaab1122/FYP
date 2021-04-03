@@ -23,10 +23,10 @@ class Login extends React.Component {
                         
                         <Inputfield text="Email" />
                         <Inputfield text="Password" />
-                        <Btn onPress={()=>this.props.navigation.navigate('Home')} text="Login" color='#000DAE' width="100%" />
+                        <Btn onPress={()=>this.props.navigation.navigate('Home')} text="Login" color='#000DAE' width="90%" />
                         <View style={{ flexDirection: 'row', justifyContent:'space-evenly' }}>
-                            <Btn text="FaceBook" color='#97aabd' width="40%" />
-                            <Btn text="Gmail" color='#97aabd' width="40%" />
+                            <Btn text="FaceBook" color='#97aabd' width="43%" />
+                            <Btn text="Gmail" color='#97aabd' width="43%" />
 
 
                         </View>

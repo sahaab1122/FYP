@@ -24,10 +24,10 @@ class Register extends React.Component {
                         <Inputfield text="Last Name" />
                         <Inputfield text="Email" />
                         <Inputfield text="Phone or Mail" />
-                        <Btn onPress={()=>this.props.navigation.navigate('Login')} text="Register" color='#000DAE' width="100%" />
+                        <Btn onPress={()=>this.props.navigation.navigate('Login')} text="Register" color='#000DAE' width="90%" />
                         <View style={{ flexDirection: 'row', justifyContent:'space-evenly' }}>
-                            <Btn text="FaceBook" color='#97aabd' width="45%" />
-                            <Btn text="Gmail" color='#97aabd' width="45%" />
+                            <Btn text="FaceBook" color='#97aabd' width="43%" />
+                            <Btn text="Gmail" color='#97aabd' width="43%" />
 
 
                         </View>

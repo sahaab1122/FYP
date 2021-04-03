@@ -26,9 +26,7 @@ export default (props) => {
                     <Text>Total:</Text>
                     <Text>$900</Text>
                 </View>
-                <View  >
-                    <Btn onPress={()=>this.props.navigation.navigate('PlaceOrder')} text="Checkout" color='#000DAE' width="90%" />
-                </View>
+               
             </View>
 
         </View>

@@ -5,94 +5,97 @@ import { StyleSheet, TextInput, View, TouchableOpacity, Text, Image, SafeAreaVie
 import Card from '../component/Card'
 import Inputfield from '../component/Inputfield';
 import BottomHeader from '../component/BottomHeader';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 
 
-const Home = (props) => {
+class Home extends React.Component {
+    render() {
+        return (
+            <View style={styles.Container}>
+                <BottomHeader navigation={this.props.navigation} btm={50} />
+                <Inputfield place='Search Now' />
+                <ScrollView style={{ paddingHorizontal: 20, }}  >
+                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                        <TouchableOpacity style={{ padding: 20 }}><Text style={{ fontFamily: 'sp', fontSize: 12 }}>Chair.</Text></TouchableOpacity>
+                        <TouchableOpacity style={{ padding: 20 }}><Text>Cupboard</Text></TouchableOpacity>
+                        <TouchableOpacity style={{ padding: 20 }}><Text>Table</Text></TouchableOpacity>
+                        <TouchableOpacity style={{ padding: 20 }}><Text>Accesso</Text></TouchableOpacity>
+                        <TouchableOpacity style={{ padding: 20 }}><Text>Furniture</Text></TouchableOpacity>
+                        <TouchableOpacity style={{ padding: 20 }}><Text>Elighte</Text></TouchableOpacity>
 
-    return (
+                    </ScrollView>
 
-        <View style={styles.Container}>
-            <BottomHeader navigation={props.navigation} btm={80} />
-            <Inputfield place='Search Now' />
-            <ScrollView style={{ paddingHorizontal:20 }}   >
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                    <TouchableOpacity style={{ padding: 20 }}><Text style={{ fontFamily: 'sp', fontSize: 12 }}>Chair.</Text></TouchableOpacity>
-                    <TouchableOpacity style={{ padding: 20 }}><Text>Cupboard</Text></TouchableOpacity>
-                    <TouchableOpacity style={{ padding: 20 }}><Text>Table</Text></TouchableOpacity>
-                    <TouchableOpacity style={{ padding: 20 }}><Text>Accesso</Text></TouchableOpacity>
-                    <TouchableOpacity style={{ padding: 20 }}><Text>Furniture</Text></TouchableOpacity>
-                    <TouchableOpacity style={{ padding: 20 }}><Text>Elighte</Text></TouchableOpacity>
+                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}  >
+                        {
+                            Array(5).fill().map((item, index) =>
+                                <Card style={{ marginRight: 10 }} key={index} />
+                            )
+                        }
 
-                </ScrollView>
 
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}  >
-                 {
-                     Array(5).fill().map((item,index)=>
-                     <Card style={{marginRight:10 }} key={index} />
-                     )
-                 }
-                 
+                    </ScrollView>
+                    <View>
 
-                </ScrollView>
-                <View>
-
-                    <Text style={{ paddingLeft: 17, fontSize: 22, fontFamily: 'sf' }}>
-                        Best Products
+                        <Text style={{ paddingLeft: 17, fontSize: 22, fontFamily: 'sf' }}>
+                            Best Products
               </Text>
-                </View>
+                    </View>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                    <Card />
-                    <Card />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                    <Card />
-                    <Card />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                    <Card />
-                    <Card />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                    <Card />
-                    <Card />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                    <Card />
-                    <Card />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                    <Card />
-                    <Card />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                    <Card />
-                    <Card />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                    <Card />
-                    <Card />
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', }}>
-                    <Card />
-                    <Card />
-                </View>
-           
+                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                        <Card />
+                        <Card />
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                        <Card />
+                        <Card />
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                        <Card />
+                        <Card />
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                        <Card />
+                        <Card />
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                        <Card />
+                        <Card />
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                        <Card />
+                        <Card />
+                    </View><View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                        <Card />
+                        <Card />
+                    </View>
+
+
+                </ScrollView>
 
 
 
 
-            </ScrollView>
-        </View>
+
+            </View>
 
 
-    )
-};
+        )
+    };
+}
 
 const styles = StyleSheet.create({
 
-    
+    Container: {
+        flex: 1,
+        backgroundColor: '#fff',
+
+        paddingTop: getStatusBarHeight()
+
+
+
+    },
+
 
 
 
