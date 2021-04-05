@@ -24,7 +24,9 @@
     "react-native-screens": "~2.15.2",
     "react-native-status-bar-height": "^2.6.0",
     "react-native-web": "~0.13.12",
-    "react-shopping-cart": "^1.9.5"
+    "react-redux": "^7.2.3",
+    "react-shopping-cart": "^1.9.5",
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"

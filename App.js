@@ -14,6 +14,7 @@ import Next from './src/screen/Next';
 import PlaceOrder from './src/screen/PlaceOrder'
 import Register from './src/screen/Register';
 import RegisterLogin from './src/screen/RegisterLogin';
+import Rapp from './src/screen/redux/Rapp';
 import AddCart from './src/component/AddCart'
 import BottomHeader from './src/component/BottomHeader';
 import Btn from './src/component/Btn';
@@ -27,6 +28,7 @@ import Middle from './src/component/Middle';
 import Smallchair from './src/component/Smallchair';
 
 import { ActivityIndicator, Text, View } from 'react-native';
+import Counter from './src/screen/redux/Counter';
 
 
 
@@ -57,7 +59,7 @@ class App extends React.Component {
         <NavigationContainer>
 
           <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
-            initialRouteName="Next" headerMode='none' >
+            initialRouteName="Login"    headerMode='none' >
             <Stack.Screen name="AddToCart" component={AddToCart} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
@@ -66,6 +68,8 @@ class App extends React.Component {
             <Stack.Screen name="PlaceOrder" component={PlaceOrder} />
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="RegisterLogin" component={RegisterLogin} />
+            <Stack.Screen name="Rapp" component={Rapp}/>
+           
 
           </Stack.Navigator>
         </NavigationContainer>
