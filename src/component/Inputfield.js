@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 0, margin: 0,
         fontFamily: 'Poppins',
-        marginTop: 25,
+        marginTop: 20,
         color: "#97AABD",
         alignSelf: 'center', 
         alignItems: 'flex-start',

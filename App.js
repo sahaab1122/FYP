@@ -8,13 +8,16 @@ import * as Font from 'expo-font'
 
 import AddToCart from './src/screen/AddToCart';
 import Home from './src/screen/Home';
-import Login from './src/screen/Login'
+import Login from './Auth/Login'
 import MyCart from './src/screen/MyCart';
 import Next from './src/screen/Next';
 import PlaceOrder from './src/screen/PlaceOrder'
-import Register from './src/screen/Register';
+import Register from './Auth/Register';
 import RegisterLogin from './src/screen/RegisterLogin';
-import Rapp from './src/screen/redux/Rapp';
+import Form from './src/screen/Form';
+import List from './src/screen/List';
+
+// import Rapp from './src/store/redux/Rapp';
 import AddCart from './src/component/AddCart'
 import BottomHeader from './src/component/BottomHeader';
 import Btn from './src/component/Btn';
@@ -28,10 +31,13 @@ import Middle from './src/component/Middle';
 import Smallchair from './src/component/Smallchair';
 
 import { ActivityIndicator, Text, View } from 'react-native';
-import Counter from './src/screen/redux/Counter';
+import Counter from './src/store/redux/Counter';
+import { Provider } from 'react-redux';
+import store from './src/store/Store';
 
 
 
+ 
 const Stack = createStackNavigator();
 
 class App extends React.Component {
@@ -56,10 +62,11 @@ class App extends React.Component {
   render() {
     return (
       this.state.fontsLoaded ?
+      <Provider store={store}>
         <NavigationContainer>
 
           <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
-            initialRouteName="Login"    headerMode='none' >
+            initialRouteName="Form"    headerMode='none' >
             <Stack.Screen name="AddToCart" component={AddToCart} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
@@ -68,11 +75,15 @@ class App extends React.Component {
             <Stack.Screen name="PlaceOrder" component={PlaceOrder} />
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="RegisterLogin" component={RegisterLogin} />
-            <Stack.Screen name="Rapp" component={Rapp}/>
+            <Stack.Screen name="Form" component={Form}/>
+            <Stack.Screen name="List" component={List}/>
+            {/* <Stack.Screen name="Rapp" component={Rapp}/> */}
            
 
           </Stack.Navigator>
+
         </NavigationContainer>
+        </Provider>
         :
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <ActivityIndicator size='large' color='red' />

@@ -2,10 +2,10 @@
 import React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import { ImageBackground, uri, StyleSheet, TextInput, View, TouchableOpacity, Text, Image, SafeAreaView, KeyboardAvoidingView, Dimensions, Platform, ScrollView } from 'react-native';
-import Middle from '../component/Middle';
-import Btn from '../component/Btn';
-import Lets from '../component/Lets';
-import Inputfield from '../component/Inputfield';
+import Middle from '../src/component/Middle';
+import Btn from '../src/component/Btn';
+import Lets from '../src/component/Lets';
+import Inputfield from '../src/component/Inputfield';
 
 
 
@@ -15,7 +15,7 @@ class Login extends React.Component {
         return (
 
             <KeyboardAvoidingView>
-                <ImageBackground source={require('../../assets/LogBack.png')} style={{ minHeight: Dimensions.get('window').height, alignItems: 'center', justifyContent: 'space-evenly', paddingLeft: 20, paddingRight: 20, }}>
+                <ImageBackground source={require('../assets/LogBack.png')} style={{ minHeight: Dimensions.get('window').height, alignItems: 'center', justifyContent: 'space-evenly', paddingLeft: 20, paddingRight: 20, }}>
 
                     <Text style={{ fontFamily: 'sp', fontSize: 23 }}>Mughal</Text>
                     <Lets />
