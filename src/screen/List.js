@@ -4,7 +4,8 @@ import {
     FlatList,
     Text,
     Button,
-    TouchableOpacity
+    TouchableOpacity,
+    View,Alert,showAlert
 } from 'react-native';
 import { ListItem, Icon } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,23 +22,25 @@ class List extends Component {
             backgroundColor: 'green'
         },
     };
-    componentDidMount() {
-      
-    }
+  componentDidMount(){
+
+  }
 
     render() {
 
         return (
             <ScrollView>
                 {
-                    this.props.foods.map((item, index) =>
-                        <TouchableOpacity key={index} style={{ backgroundColor: 'yellow', justifyContent: 'space-around', alignSelf: 'center', width: '50%', padding: 30, marginTop: 20,flexDirection:'row', }}>
+                    
+                     this.props.foods.map((item,index)=>
+                        <View key={index} style={{ backgroundColor: 'yellow', alignSelf:'center',justifyContent:'space-around', width: '90%',height:60, padding: 10, marginTop: 20,flexDirection:'row', }}>
                             <Text>{item}</Text>
 
-                            <TouchableOpacity onPress={()=> this.props.delete(index)}>
-                                <Text style={{fontSize:20}}>X</Text>
+                            <TouchableOpacity onPress={()=>this.props.delete(index)}   >
+                           
+                                <Text  style={{fontSize:20,}}  >X</Text>
                             </TouchableOpacity>
-                        </TouchableOpacity>
+                        </View>
 
                     )
 
@@ -57,15 +60,15 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
 });
-const mapStatToPorps = (state) => {
+const mapStatToProps = (state) => {
     
     return {
         foods: state.foodReducer.List
     }
-}
+}       
 const mapDispatchToProps = (dispatch) => {
     return {
         delete: (index) => dispatch(deleteFood(index))
     }
 }
-export default connect(mapStatToPorps, mapDispatchToProps)(List);
+export default connect(mapStatToProps, mapDispatchToProps)(List);

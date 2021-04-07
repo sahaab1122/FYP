@@ -1,4 +1,4 @@
-import { ADD_FOOD, DELETE_FOOD } from './types';
+import { ADD_FOOD, DELETE_FOOD } from './Types';
 
 export const addFood = (food) => (
   {

@@ -1,4 +1,4 @@
-import { ADD_FOOD, DELETE_FOOD } from '../actions/types';
+import { ADD_FOOD, DELETE_FOOD } from '../actions/Types';
 
 const initialState = {
   List: []
@@ -17,8 +17,7 @@ const foodReducer = (state = initialState, action) => {
     case DELETE_FOOD:
       return {
         ...state,
-        List: state.List.filter((item,index) =>
-          index !== action.index)
+        List: state.List.filter((item,index) =>index !== action.index)
       };
     default:
       return state;
