@@ -11,36 +11,71 @@ import Inputfield from '../src/component/Inputfield';
 
 
 class Login extends React.Component {
+    // state = {
+    //     firstName: '',
+    //     lastName: '',
+    //     email: '',
+    //     address: '',
+    //     password: '',
+    //     confirmPassword: '',
+    //     phone: '',
+
+
+    //     loading: true
+
+    // }
     render() {
         return (
 
-            <KeyboardAvoidingView>
-                <ImageBackground source={require('../assets/LogBack.png')} style={{ minHeight: Dimensions.get('window').height, alignItems: 'center', justifyContent: 'space-evenly', paddingLeft: 20, paddingRight: 20, }}>
+            <View style={{ height: '100%' }}>
 
-                    <Text style={{ fontFamily: 'sp', fontSize: 23 }}>Mughal</Text>
+                <ImageBackground resizeMode='stretch' source={require('../assets/LogBack.png')} style={{
+                    width: "100%", height: '100%', minHeight: Dimensions.get('window').height, position: 'absolute', alignItems: 'center',
+
+                }} />
+
+                <ScrollView contentContainerStyle={{ minHeight: Dimensions.get('window').height, justifyContent: 'space-evenly' }} showsVerticalScrollIndicator={false} >
+                    <Text style={{ fontFamily: 'sp', fontSize: 23, textAlign: 'center' }}>Mughal</Text>
                     <Lets />
-                    <View style={{ width: '100%' }} >
-                        
-                        <Inputfield text="Email" />
-                        <Inputfield text="Password" />
-                        <Btn onPress={()=>this.props.navigation.navigate('Home')} text="Login" color='#000DAE' width="90%" />
-                        <View style={{ flexDirection: 'row', justifyContent:'space-evenly' }}>
-                            <Btn text="FaceBook" color='#97aabd' width="43%" />
-                            <Btn text="Gmail" color='#97aabd' width="43%" />
 
+                    <View style={{ width: '100%' }} >
+
+                        <Inputfield text="Email" keyboardType="email-address" />
+                        <Inputfield text="Password" />
+
+                        <TouchableOpacity style={styles.text} >
+                            <Text style={{ color: 'white',  }}>Login</Text>
+                        </TouchableOpacity>
+                        {/* <Btn onPress={() => this.props.navigation.navigate('Home')} text="Login" color='#000DAE' width="90%" /> */}
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
+                            <Btn text="FaceBook" color='#97aabd' width="43%" />
+                            <Btn text="Google" color='#97aabd' width="43%" />
 
                         </View>
 
-
                     </View>
-                </ImageBackground>
-            </KeyboardAvoidingView>
+                </ScrollView>
+            </View>
+
         )
 
 
     }
 }
+const styles = StyleSheet.create({
+    text: {
+        alignItems: 'center',
+        alignSelf: 'flex-end',
+        justifyContent: 'center',
+        alignSelf: 'center',
+        marginTop: 10,
+        height: 43,
+        backgroundColor: '#000DAE',
+        borderRadius: 3,
+        width:"90%"
+    },
 
+});
 
 
 

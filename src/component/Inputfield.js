@@ -1,3 +1,4 @@
+import { Feather } from '@expo/vector-icons';
 import React from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 
@@ -6,7 +7,7 @@ export default (props) => {
 
 
 
-        <TextInput placeholder={props.place} style={styles.inputfield}   >{props.text}</TextInput>
+        <TextInput onChangeText={(text) => { this.setState({name:text})}} placeholder={props.place} style={styles.inputfield} keyboardType={props.keyboardType} Feather name="eye-off"> {props.text}</TextInput>
 
     )
 }

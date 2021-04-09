@@ -6,11 +6,7 @@ import { addFood } from '../store/actions/food';
 
 class Form extends Component {
   static navigationOptions = {
-    title: 'Home',
-    headerTintColor: 'white',
-    headerStyle: {
-      backgroundColor: 'blue'
-    },
+    title: 'Home',headerTintColor: 'white',headerStyle: {backgroundColor: 'blue'},
   };
   state = {
     foods: ""
@@ -36,18 +32,7 @@ class Form extends Component {
         source={require('./assets/logo.png')}
       /> */}
         <Text style={styles.title}>Redux</Text>
-        {<TextInput
-
-          placeholder='Name'
-          style={styles.foodInput}
-
-          onChangeText={(foods) => this.setState({ foods })}
-        />
-
-
-
-
-        }
+        {<TextInput placeholder='Name'style={styles.foodInput} onChangeText={(foods) => this.setState({ foods })}/>}
 
 
         <TouchableOpacity
