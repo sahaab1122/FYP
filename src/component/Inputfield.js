@@ -7,7 +7,7 @@ export default (props) => {
 
 
 
-        <TextInput onChangeText={(text) => { this.setState({name:text})}} placeholder={props.place} style={styles.inputfield} keyboardType={props.keyboardType} Feather name="eye-off"> {props.text}</TextInput>
+        <TextInput onChangeText={(text) => { this.setState({name:text})}} placeholder={props.text} style={styles.inputfield} keyboardType={props.keyboardType}   />
 
     )
 }

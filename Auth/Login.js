@@ -11,6 +11,60 @@ import Inputfield from '../src/component/Inputfield';
 
 
 class Login extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            text: '',
+            email: '',
+            password: '',
+        }
+    }
+    addToReduc = () => {
+
+        if (this.state.email == '') {
+            alert('Please write Email')
+        }
+        
+        else if (this.state.password == '') {
+            alert('Please write PASSWORD  ')
+        }
+        else  {
+            this.props.navigation.navigate('Home')
+        }
+       
+
+
+
+    }
+    // }else{
+    //   this.props.Login(this.state.text);
+    // }
+
+
+    // Login() {
+    //     // let rjx = /^[a-Az-z]+$/;
+    //     // let isValid = rjx.test(this.state.name)
+    //     // console.warn(this.state)
+    //     // if (!isValid) {
+    //     //     this.setState({})
+    //     // }
+    //     if(this.state.Login ==""){
+    //         this.setState({loginError: 'this'})
+    //     }
+
+    // }
+
+
+    // pasaswordValidator() {
+    //     if (this.state.password == "") {
+    //         this.setState({ passwordError: 'this field can not be empty' })
+    //     }
+    //     // else {
+    //     //      this.setState.props.navigation.navigate('Home')
+    //     // }
+    // }
+
+
     // state = {
     //     firstName: '',
     //     lastName: '',
@@ -36,15 +90,21 @@ class Login extends React.Component {
 
                 <ScrollView contentContainerStyle={{ minHeight: Dimensions.get('window').height, justifyContent: 'space-evenly' }} showsVerticalScrollIndicator={false} >
                     <Text style={{ fontFamily: 'sp', fontSize: 23, textAlign: 'center' }}>Mughal</Text>
-                    <Lets />
+                    {/* <Lets /> */}
 
                     <View style={{ width: '100%' }} >
 
-                        <Inputfield text="Email" keyboardType="email-address" />
-                        <Inputfield text="Password" />
+                        {/* <Inputfield text="Email" keyboardType="email-address" /> */}
+                        <TextInput  keyboardType={'email-address'}  style={styles.inputfield} placeholder="enter email"
+                            onChangeText={(email) => { this.setState({ email }) }}
+                        />
+                        {/* <Inputfield text="Password" /> */}
+                        <TextInput style={styles.inputfield} placeholder="enter password" secureTextEntry={true}
+                            onChangeText={(password) => { this.setState({ password }) }}
+                        />
 
-                        <TouchableOpacity style={styles.text} >
-                            <Text style={{ color: 'white',  }}>Login</Text>
+                        <TouchableOpacity onPress={() => this.addToReduc()} style={styles.text} >
+                            <Text style={{ color: 'white', }}>Login</Text>
                         </TouchableOpacity>
                         {/* <Btn onPress={() => this.props.navigation.navigate('Home')} text="Login" color='#000DAE' width="90%" /> */}
                         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
@@ -72,7 +132,28 @@ const styles = StyleSheet.create({
         height: 43,
         backgroundColor: '#000DAE',
         borderRadius: 3,
-        width:"90%"
+        width: "90%"
+    },
+    inputfield: {
+        width: '90%',
+        height: 43,
+        borderRadius: 3,
+        backgroundColor: '#F5F8FA',
+        borderColor: '#97aabd',
+        borderWidth: 1,
+        padding: 0, margin: 0,
+        fontFamily: 'Poppins',
+        marginTop: 20,
+        color: "#97AABD",
+        alignSelf: 'center',
+        alignItems: 'flex-start',
+        paddingHorizontal: 10
+
+
+
+
+
+
     },
 
 });
