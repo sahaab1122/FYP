@@ -13,10 +13,10 @@ export default (props) => {
         <View   style={{position: 'absolute',zIndex:10,alignSelf:'center',backgroundColor:'#F5F8FA' ,bottom:props.btm  }}>
             <View style={styles.view} >
                 <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=> props.navigation.navigate('Home')}>
                         <Octicons name="home" size={24} color="blue" />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=> props.navigation.navigate('Home')}>
                         <Text style={{ paddingLeft: 9, color: 'blue', marginTop: 5 }}>Home</Text>
                     </TouchableOpacity>
                 </View>

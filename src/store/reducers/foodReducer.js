@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const foodReducer = (state = initialState, action) => {
-  console.log(action)
+
   switch (action.type) {
     case ADD_FOOD:
       return {

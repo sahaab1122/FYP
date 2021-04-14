@@ -14,6 +14,7 @@ import Next from './src/screen/Next';
 import PlaceOrder from './src/screen/PlaceOrder'
 import Register from './Auth/Register';
 import RegisterLogin from './src/screen/RegisterLogin';
+import Favorite from './src/screen/Favorite';
 import Form from './src/screen/Form';
 import List from './src/screen/List';
 
@@ -66,7 +67,7 @@ class App extends React.Component {
         <NavigationContainer>
 
           <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
-            initialRouteName="Register"    headerMode='none' >
+            initialRouteName="MyCart"    headerMode='none' >
             <Stack.Screen name="AddToCart" component={AddToCart} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
@@ -77,6 +78,7 @@ class App extends React.Component {
             <Stack.Screen name="RegisterLogin" component={RegisterLogin} />
             <Stack.Screen name="Form" component={Form}/>
             <Stack.Screen name="List" component={List}/>
+            <Stack.Screen name="Favorite" component={Favorite} />
             {/* <Stack.Screen name="Rapp" component={Rapp}/> */}
            
 

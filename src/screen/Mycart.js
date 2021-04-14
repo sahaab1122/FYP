@@ -19,12 +19,20 @@ class MyCart extends React.Component {
        <Text style={{fontSize:22,color:'#000',fontFamily:'Poppins',paddingLeft:10}}>My Cart</Text>
        </View>
        <CartPrice/>
+       <View >
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 20 }}>
+                    <Text>Total:</Text>
+                    <Text>$900</Text>
+                </View>
+
+            </View>
        <View  >
                     <Btn onPress={()=>this.props.navigation.navigate('PlaceOrder')} text="Checkout" color='#000DAE' width="90%" />
                 </View>
-       <View style={{position: 'absolute',backgroundColor:'cyan',zIndex:10,bottom:0,alignSelf:'center',textAlign:'center',width:'100%'    }}>
-           <BottomHeader btm={40} />
-       </View>
+       
+           <View 
+           ><BottomHeader navigation={this.props.navigation}  btm={-380} /></View>
+       
         </View>
 
 

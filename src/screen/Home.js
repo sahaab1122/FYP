@@ -14,7 +14,7 @@ class Home extends React.Component {
         return (
             <View style={styles.Container}>
                 <BottomHeader navigation={this.props.navigation} btm={50} />
-                <Inputfield place='Search Now' />
+                <Inputfield text='Search Now' />
                 <ScrollView style={{ paddingHorizontal: 20, }}  >
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                         <TouchableOpacity style={{ padding: 20 }}><Text style={{ fontFamily: 'sp', fontSize: 12 }}>Chair.</Text></TouchableOpacity>
