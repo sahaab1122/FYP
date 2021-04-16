@@ -18,6 +18,7 @@ import User from './src/screen/User';
 import Form from './src/screen/Form';
 import List from './src/screen/List';
 import Forgetpass from './src/screen/Forgetpass';
+import WishList from './src/screen/Wishlist'
 
 
 
@@ -38,6 +39,8 @@ import { ActivityIndicator, Text, View } from 'react-native';
 import Counter from './src/store/redux/Counter';
 import { Provider } from 'react-redux';
 import store from './src/store/Store';
+import { startClock } from 'react-native-reanimated';
+import Wishlist from './src/screen/Wishlist';
 
 
 
@@ -70,7 +73,7 @@ class App extends React.Component {
         <NavigationContainer>
 
           <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
-            initialRouteName="Forgetpass"    headerMode='none' >
+            initialRouteName="Next"    headerMode='none' >
             <Stack.Screen name="AddToCart" component={AddToCart} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
@@ -83,6 +86,7 @@ class App extends React.Component {
             <Stack.Screen name="List" component={List}/>
             <Stack.Screen name="User" component={User} />
             <Stack.Screen name="Forgetpass" component={Forgetpass} />
+            <Stack.Screen name="Wishlist" component={Wishlist} />
             {/* <Stack.Screen name="Forgetpass" component={Forgetpass} /> */}
             {/* <Stack.Screen name="Rapp" component={Rapp}/> */}
            

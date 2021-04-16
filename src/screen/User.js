@@ -56,7 +56,7 @@ class User extends React.Component {
                     </View>
                     <View style={{flexDirection:'row'}}>
 
-                        <TouchableOpacity style={{justifyContent:'center',alignItems:'center',borderWidth:1,width:'50%',height:70,borderColor:'#D1D1D2'}}>
+                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Wishlist')} style={{justifyContent:'center',alignItems:'center',borderWidth:1,width:'50%',height:70,borderColor:'#D1D1D2'}}>
                             
                             <Text style={{textAlignVertical:'center',fontSize:20}}>Favourite</Text>
                         </TouchableOpacity>
@@ -65,14 +65,14 @@ class User extends React.Component {
                             <Text style={{textAlignVertical:'center',fontSize:20}}>Orders</Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={{flexDirection:'row',paddingVertical:10,marginTop:10}}>
+                    <TouchableOpacity onPress={()=> this.props.navigation.navigate('Wishlist')} style={{flexDirection:'row',paddingVertical:10,marginTop:10}}>
                     <Text >
                     <EvilIcons name="heart" size={29} color="red" />
                     </Text>
                     <Text style={{paddingLeft:10,fontFamily:'Poppins'}}>
                         Your WishList
                     </Text>
-                     </View>
+                     </TouchableOpacity>
                         <View style={{flexDirection:'row',paddingVertical:10}}>
                     <Text>
                     <AntDesign name="contacts" size={24} color="red" />
