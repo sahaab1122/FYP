@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as Font from 'expo-font'
 
 
-
+// import Forgetpass from './src/screen/Forgetpass';
 import AddToCart from './src/screen/AddToCart';
 import Home from './src/screen/Home';
 import Login from './Auth/Login'
@@ -14,9 +14,12 @@ import Next from './src/screen/Next';
 import PlaceOrder from './src/screen/PlaceOrder'
 import Register from './Auth/Register';
 import RegisterLogin from './src/screen/RegisterLogin';
-import Favorite from './src/screen/Favorite';
+import User from './src/screen/User';
 import Form from './src/screen/Form';
 import List from './src/screen/List';
+import Forgetpass from './src/screen/Forgetpass';
+
+
 
 // import Rapp from './src/store/redux/Rapp';
 import AddCart from './src/component/AddCart'
@@ -67,7 +70,7 @@ class App extends React.Component {
         <NavigationContainer>
 
           <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
-            initialRouteName="MyCart"    headerMode='none' >
+            initialRouteName="Forgetpass"    headerMode='none' >
             <Stack.Screen name="AddToCart" component={AddToCart} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
@@ -78,7 +81,9 @@ class App extends React.Component {
             <Stack.Screen name="RegisterLogin" component={RegisterLogin} />
             <Stack.Screen name="Form" component={Form}/>
             <Stack.Screen name="List" component={List}/>
-            <Stack.Screen name="Favorite" component={Favorite} />
+            <Stack.Screen name="User" component={User} />
+            <Stack.Screen name="Forgetpass" component={Forgetpass} />
+            {/* <Stack.Screen name="Forgetpass" component={Forgetpass} /> */}
             {/* <Stack.Screen name="Rapp" component={Rapp}/> */}
            
 

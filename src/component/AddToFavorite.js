@@ -4,7 +4,7 @@ import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity } from 'reac
 import { FontAwesome } from '@expo/vector-icons';
 import { Transitioning } from 'react-native-reanimated';
 
-class AddToFavourite extends React.Component {
+class AddToFavorite extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -41,15 +41,18 @@ class AddToFavourite extends React.Component {
         return (
 
 
-            this.state.heart === true ?
-                <Text onPress={() => this.toggleFav()}>
-                    <  FontAwesome name="heart" size={25} color="black" />
-                </Text>
-                :
-                <Text onPress={() => this.toggleFav()}>
-                    < FontAwesome name="heart-o" size={25} color="black" />
-                </Text>
+            <TouchableOpacity onPress={() => this.toggleFav()}>
 
+                {this.state.heart === true ?
+
+
+                    <  FontAwesome name="heart" size={25} color="black" />
+                    :
+                    < FontAwesome name="heart-o" size={25} color="black" />
+
+
+                }
+            </TouchableOpacity>
 
 
 
@@ -76,7 +79,7 @@ class AddToFavourite extends React.Component {
 // }
 // }
 
-export default AddToFavourite;
+export default AddToFavorite;
 
 
 

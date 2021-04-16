@@ -91,6 +91,7 @@ class Login extends React.Component {
                 <ScrollView contentContainerStyle={{ minHeight: Dimensions.get('window').height, justifyContent: 'space-evenly' }} showsVerticalScrollIndicator={false} >
                     <Text style={{ fontFamily: 'sp', fontSize: 23, textAlign: 'center' }}>Mughal</Text>
                     {/* <Lets /> */}
+                    <Middle />
 
                     <View style={{ width: '100%' }} >
 
@@ -98,11 +99,15 @@ class Login extends React.Component {
                         <TextInput  keyboardType={'email-address'}  style={styles.inputfield} placeholder="enter email"
                             onChangeText={(email) => { this.setState({ email }) }}
                         />
+                        
                         {/* <Inputfield text="Password" /> */}
                         <TextInput style={styles.inputfield} placeholder="enter password" secureTextEntry={true}
                             onChangeText={(password) => { this.setState({ password }) }}
                         />
+                        <TouchableOpacity onPress={()=> this.props.navigation.navigate('Forgetpass')}>
 
+                            <Text style={{alignSelf:'flex-end',paddingHorizontal:20,paddingTop:10,color:'blue'}}>Forget password</Text>
+                        </TouchableOpacity>
                         <TouchableOpacity onPress={() => this.addToReduc()} style={styles.text} >
                             <Text style={{ color: 'white', }}>Login</Text>
                         </TouchableOpacity>

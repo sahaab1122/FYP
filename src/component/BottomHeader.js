@@ -26,7 +26,7 @@ export default (props) => {
                 <TouchableOpacity onPress={()=> props.navigation.navigate('AddToCart')}>
                     <FontAwesome5 name="shopping-bag" size={24} color="black" />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=> props.navigation.navigate('User')}>
                     <AntDesign name="user" size={24} color="black" />
                 </TouchableOpacity>
             </View>

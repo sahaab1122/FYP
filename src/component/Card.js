@@ -1,6 +1,9 @@
 import React from 'react';
 import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
+import AddToCart from '../screen/AddToCart';
+
+import AddToFavorite from './AddToFavorite'
 
 export default (props) => {
     return (
@@ -15,9 +18,7 @@ export default (props) => {
                     <Text style={{ fontSize: 16 }}>Chair  </Text>
                     <Text style={{ fontSize: 11 }}>$1600</Text>
                 </View>
-                <TouchableOpacity style={styles.tuchable}>
-                    <FontAwesome name="heart-o" size={20} color="black" />
-                </TouchableOpacity>
+                <AddToFavorite />
             </View>
 
         </View>
