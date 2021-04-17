@@ -18,6 +18,7 @@ import User from './src/screen/User';
 import Form from './src/screen/Form';
 import List from './src/screen/List';
 import Forgetpass from './src/screen/Forgetpass';
+import SuccessfulRegister from './src/screen/SuccessfulRegister';
 import WishList from './src/screen/Wishlist'
 
 
@@ -87,6 +88,7 @@ class App extends React.Component {
             <Stack.Screen name="User" component={User} />
             <Stack.Screen name="Forgetpass" component={Forgetpass} />
             <Stack.Screen name="Wishlist" component={Wishlist} />
+            <Stack.Screen name="SuccessfulRegister" component={SuccessfulRegister} />
             {/* <Stack.Screen name="Forgetpass" component={Forgetpass} /> */}
             {/* <Stack.Screen name="Rapp" component={Rapp}/> */}
            

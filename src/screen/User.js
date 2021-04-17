@@ -58,11 +58,11 @@ class User extends React.Component {
 
                         <TouchableOpacity onPress={()=>this.props.navigation.navigate('Wishlist')} style={{justifyContent:'center',alignItems:'center',borderWidth:1,width:'50%',height:70,borderColor:'#D1D1D2'}}>
                             
-                            <Text style={{textAlignVertical:'center',fontSize:20}}>Favourite</Text>
+                            <Text style={{textAlignVertical:'center',fontSize:20,fontFamily:'Poppins'}}>Favourite</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={{justifyContent:'center',alignItems:'center',borderWidth:1,width:'50%',height:70,borderColor:'#D1D1D2'}}>
                             
-                            <Text style={{textAlignVertical:'center',fontSize:20}}>Orders</Text>
+                            <Text style={{textAlignVertical:'center',fontSize:20,fontFamily:'Poppins'}}>Orders</Text>
                         </TouchableOpacity>
                     </View>
                     <TouchableOpacity onPress={()=> this.props.navigation.navigate('Wishlist')} style={{flexDirection:'row',paddingVertical:10,marginTop:10}}>
