@@ -4,6 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { ImageBackground, uri, StyleSheet, TextInput, View, TouchableOpacity, Text, Image, SafeAreaView, KeyboardAvoidingView, Dimensions, Platform, ScrollView } from 'react-native';
 import Middle from '../component/Middle';
 import Btn from '../component/Btn';
+// import *as animation from 'react-native-animatable'
 
 
 
@@ -17,7 +18,9 @@ class Next extends React.Component {
 
                 
                 <Middle />
-                <View style={{width:'100%'}} >
+                <View style={{width:'100%'}} 
+                
+                >
                     <Btn onPress={()=>this.props.navigation.navigate('RegisterLogin')} text="Next" color='#000DAE' width="50%" />
                 </View>
             </ImageBackground>
