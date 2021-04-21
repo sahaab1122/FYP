@@ -13,6 +13,10 @@ import Btn from '../component/Btn'
 
 
 class AddToCart extends React.Component {
+    componentDidMount(){
+        console.log(this.props.route.params);
+        this.setState({ Matchcode:this.props.route.params.itemId })
+    }
     render() {
         return (
             <View style={{flex:1,backgroundColor:'#fff'}}>

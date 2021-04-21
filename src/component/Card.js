@@ -12,7 +12,7 @@ export default (props) => {
 
         <View style={[{width:150,marginVertical:10},props.style]}>
 
-            <Image style={{width:"100%",resizeMode:'contain',backgroundColor:'#F5F8FA'}} source={require('../../assets/Chair1.png')} />
+            <Image style={{width:"100%",resizeMode:'contain',backgroundColor:'#F5F8FA'}} source={props.Image} />
             <View style={styles.secview}>
                 <View style={styles.thrdview}>
                     <Text style={{ fontSize: 16 }}>Chair  </Text>

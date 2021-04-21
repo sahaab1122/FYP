@@ -10,7 +10,16 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 
 class Home extends React.Component {
-    render() {
+    constructor() {
+        super();
+        this.state = {
+            name: 'Chair',
+            price: '1600$',
+            image: require('../../assets/Chair1.png'),
+
+        }
+    }
+    render(props) {
         return (
             <View style={styles.Container}>
                 <BottomHeader navigation={this.props.navigation} btm={50} />
@@ -29,43 +38,63 @@ class Home extends React.Component {
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}  >
                         {
                             Array(5).fill().map((item, index) =>
-                                <Card style={{ marginRight: 10 }} key={index} />
+                                <Card Image={require('../../assets/Chair3.png')} style={{ marginRight: 10 }} key={index} />
                             )
                         }
 
 
                     </ScrollView>
+                    {/* best Products */}
                     <View>
-
                         <Text style={{ paddingLeft: 17, fontSize: 22, fontFamily: 'sf' }}>
                             Best Products
-              </Text>
+                        </Text>
                     </View>
 
-                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                    <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
+                        <TouchableOpacity onPress={()=> this.props.navigation.navigate('AddToCart',{})}>
+                         <Card  Image={require('../../assets/Chair2.png')} />
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+
+                         <Card Image={require('../../assets/Chair1.png')} />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
                         <Card />
                         <Card />
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                    <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
                         <Card />
                         <Card />
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                    <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
                         <Card />
                         <Card />
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                    <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
                         <Card />
                         <Card />
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                    <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
+                        <Card />
+                        <Card />
+                    </View><View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
                         <Card />
                         <Card />
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                    <View>
+
+                        {/* //Cupboard */}
+                        <Text style={{ paddingLeft: 17, fontSize: 22, fontFamily: 'sf' }}>
+                            Cupboard
+                        </Text>
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
                         <Card />
                         <Card />
-                    </View><View style={{ flexDirection: 'row', justifyContent:"space-around", }}>
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
                         <Card />
                         <Card />
                     </View>
