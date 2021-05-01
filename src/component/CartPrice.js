@@ -7,29 +7,29 @@ import AddCart from './AddCart';
 import AddToFavorite from './AddToFavorite';
 export default (props) => {
     return (
-        <View>
-            <View style={{ backgroundColor: '#f8f8f8', height: 100, justifyContent: 'center', width: '90%', alignSelf: 'center' }}>
+      
+            <View style={{  height: 100, justifyContent: 'center', width: '90%', alignSelf: 'center',backgroundColor:'#F5F8FA' }}>
                 <View style={{ position: 'absolute', right: 10, top: 10 }}><AddToFavorite /></View>
                 <View style={{ paddingLeft: 10, flexDirection: 'row' }}>
-                    <Image source={require('../../assets/Cartprice.png')} style={{ alignSelf: 'center' }} />
+                    <Image source={require('../../assets/Cartprice.png')} style={{ alignSelf: 'center',height:'100%',width:'25%' }} />
+                 
+                 
                     <View style={styles.thrdview}>
 
                         <Text style={{ fontSize: 16 }}>Scoutch Premium  </Text>
-                        <Text style={{ fontSize: 11 }}>$1600</Text>
-                        <Text style={{ padding: 10, paddingLeft: 0 }}>
+                        <Text style={{ fontSize: 11 }}>$1600</Text> 
 
-                            <View style={{ flexDirection: 'row' }}>
+                            
                                 <AddCart />
 
-                            </View>
-
-                        </Text>
+                            
+ 
                     </View>
                 </View>
             </View>
 
 
-        </View>
+     
 
     )
 }
@@ -52,6 +52,8 @@ const styles = StyleSheet.create({
     },
     thrdview: {
         padding: 10,
+   
+        flex:1
 
     },
 

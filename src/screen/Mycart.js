@@ -8,6 +8,7 @@ import EmptyCart from '../component/EmptyCart';
 import CartPrice from '../component/CartPrice';
 import Btn from '../component/Btn'
 
+
 class MyCart extends React.Component {
     render(){
 

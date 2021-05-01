@@ -10,13 +10,27 @@ import { AntDesign } from '@expo/vector-icons';
 
 export default class CartBtn extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            shown: true,
-            qt: 1,
-        }
+    // constructor(props) {
+    //     super(props);
+    state = {
+        // shown: true,
+        qt: 0,
     }
+
+    increaseCounter = () => {
+        this.setState({ qt: this.state.qt + 1 })
+    }
+    decreaseCounter = () => {
+        this.setState({ qt: this.state.qt - 1 })
+    }
+
+
+
+
+
+
+
+
     // handleChange = async (num) => {
     //     var eff = this.state.qt + num
     //     var product = this.props.product
@@ -80,21 +94,21 @@ export default class CartBtn extends React.Component {
     render() {
 
         return (
-            <View style={{ minWidth: 130, display: 'flex', marginRight: 10, }}>
-                {!this.state.shown ?
-                    <TouchableOpacity onClick={() => null} className="ripple" style={{ flexDirection: 'row', alignItems: 'center', height: 50, width: '100%', }}>
+            <View style={{ width:'90%',height:40,alignSelf:'center' }}>
+                {this.state.qt === 0 ?
+                    <TouchableOpacity onPress={() => this.increaseCounter()} className="ripple" style={{ height: '100%',backgroundColor:'#000DAE',  alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={{ fontSize: 20,color:'white',paddingHorizontal:20,paddingVertical:5 }}>AddCart</Text>
 
-                        
                     </TouchableOpacity>
                     :
-                    <View style={{ display: 'flex', alignItems: 'center',flexDirection:'row' }}>
-                        <TouchableOpacity onClick={() => null} style={{ borderRadius: 5 }} className="btn-1">
-                        <AntDesign name="minussquare" size={24} color="black" />
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => this.decreaseCounter()} style={{ borderRadius: 5 }}  >
+                            <AntDesign name="minussquare" size={28} color="black" />
                         </TouchableOpacity>
-                        <Text style={{ width: 50, display: 'flex', justifyContent: 'center', color: '#960400',textAlign:'center' }}>{this.state.qt}</Text>
-                        <TouchableOpacity onClick={() => null} style={{ borderRadius: 5 }} className="btn-1">
-                        <AntDesign name="plussquare" size={24} color="black" />
-                            </TouchableOpacity>
+                        <Text style={{ color: '#960400' }}>{this.state.qt}</Text>
+                        <TouchableOpacity onPress={() => this.increaseCounter()} style={{ borderRadius: 5 }}  >
+                            <AntDesign name="plussquare" size={28} color="black" />
+                        </TouchableOpacity>
                     </View>
                 }
 
