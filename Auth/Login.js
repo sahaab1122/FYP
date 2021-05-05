@@ -113,7 +113,7 @@ class Login extends React.Component {
                         </TouchableOpacity>
                         {/* <Btn onPress={() => this.props.navigation.navigate('Home')} text="Login" color='#000DAE' width="90%" /> */}
                         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-                            <Btn text="FaceBook" color='#97aabd' width="43%" />
+                            <Btn text="Facebook" color='#97aabd' width="43%" />
                             <Btn text="Google" color='#97aabd' width="43%" />
 
                         </View>
