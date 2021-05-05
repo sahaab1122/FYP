@@ -25,7 +25,7 @@ class SuccessfulRegister extends React.Component {
     }
     addToReduc = (code) => {
        console.log(code)
-        if ( code === this.state.Matchcode) {
+        if ( code == this.state.Matchcode) {
             this.props.navigation.navigate('Home')
             
         }

@@ -15,7 +15,7 @@ class Landing extends React.Component {
         setTimeout(() => {
             this.props.navigation.navigate('Next')
             
-        }, 3000);
+        }, 4000);
     }
 //     componentWillUnmount(){
 //         clearTimeout(this.timeoutHandle); 
