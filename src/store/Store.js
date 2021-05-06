@@ -1,10 +1,10 @@
-import { createStore, combineReducers } from 'redux';
-import foodReducer from './reducers/foodReducer';
+// import { createStore, combineReducers } from 'redux';
+// import foodReducer from './reducers/foodReducer';
 
-const rootReducer = combineReducers({
-  foodReducer: foodReducer
-})
+// const rootReducer = combineReducers({
+//   foodReducer: foodReducer
+// })
 
-const store =   createStore(rootReducer);
+// const store =   createStore(rootReducer);
 
-export default store;  
+// export default store;  
