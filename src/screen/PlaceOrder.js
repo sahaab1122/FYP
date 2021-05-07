@@ -14,7 +14,10 @@ class PlaceOrder extends React.Component {
 
             <View style={{ backgroundColor: '#fff', flex: 1, justifyContent: 'space-evenly', padding: 20 }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                    <Entypo name="cross" size={24} color="black" />
+                   <TouchableOpacity onPress={()=> this.props.navigation.goBack()}>
+                       <Entypo name="cross" size={24} color="black" />
+                       
+                       </TouchableOpacity> 
                     <Entypo name="plus" size={24} color="black" />
                 </View>
                 <View>

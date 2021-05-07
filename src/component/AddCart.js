@@ -96,8 +96,8 @@ export default class CartBtn extends React.Component {
         return (
             <View style={{ width:'90%',height:40,alignSelf:'center' }}>
                 {this.state.qt === 0 ?
-                    <TouchableOpacity onPress={() => this.increaseCounter()}  style={{ height: '100%',backgroundColor:'#000DAE',  alignItems: 'center', justifyContent: 'center' }}>
-                        <Text style={{ fontSize: 20,color:'white',paddingHorizontal:20,paddingVertical:5 }}>AddCart</Text>
+                    <TouchableOpacity onPress={() => this.increaseCounter()}  style={{ height: '90%',backgroundColor:'#000DAE',  alignItems: 'center', justifyContent: 'center',marginTop:5 }}>
+                        <Text style={{ fontSize: 20,color:'white',paddingHorizontal:20,paddingVertical:4 }}>AddCart</Text>
 
                     </TouchableOpacity>
                     :

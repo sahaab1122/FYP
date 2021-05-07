@@ -5407,7 +5407,7 @@ prop-types@15.6.0:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
 
-prop-types@^15.5.10, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5583,6 +5583,13 @@ react-native-status-bar-height@^2.6.0:
   resolved "https://registry.yarnpkg.com/react-native-status-bar-height/-/react-native-status-bar-height-2.6.0.tgz#b6afd25b6e3d533c43d0fcdcfd5cafd775592cea"
   integrity sha512-z3SGLF0mHT+OlJDq7B7h/jXPjWcdBT3V14Le5L2PjntjjWM3+EJzq2BcXDwV+v67KFNJic5pgA26cCmseYek6w==
 
+react-native-tab-view@^1.0.2:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-1.4.1.tgz#f113cd87485808f0c991abec937f70fa380478b9"
+  integrity sha512-Bke8KkDcDhvB/z0AS7MnQKMD2p6Kwfc1rSKlMOvg9CC5CnClQ2QEnhPSbwegKDYhUkBI92iH/BYy7hNSm5kbUQ==
+  dependencies:
+    prop-types "^15.6.1"
+
 react-native-vector-icons@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-7.1.0.tgz#145487d617b2a81d395d2cf64e6e065fcab3a454"
@@ -5596,6 +5603,13 @@ react-native-vector-icons@^7.1.0:
     lodash.template "^4.5.0"
     prop-types "^15.7.2"
     yargs "^15.0.2"
+
+react-native-vertical-tab-view@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/react-native-vertical-tab-view/-/react-native-vertical-tab-view-0.1.3.tgz#415d53411bb2ab43a91cafc1391edae3cf22e48a"
+  integrity sha512-0WCE865MyrUmTz6KkYcDvCE754CG+JtS/raGbsbWeMO+eRhDz5ZvvlkTcJJB2ap/xqAAcmTbnAHS8GrOzHtHlQ==
+  dependencies:
+    react-native-tab-view "^1.0.2"
 
 react-native-video@^5.1.1:
   version "5.1.1"
@@ -5724,6 +5738,11 @@ react-transition-group@^4.4.1:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-whatsapp@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/react-whatsapp/-/react-whatsapp-0.2.1.tgz#b0d8424619883b86271c9ea07d338f4b3e98669e"
+  integrity sha512-fjEahRJR0qcVvBZfxXxV9yK/U0QwFS9ZuoAvDpBmJbPS1cNAXUnJaDJ7mpZv0l11dfYEc4ikl/V5cwV/QVLKlg==
 
 react@16.13.1:
   version "16.13.1"

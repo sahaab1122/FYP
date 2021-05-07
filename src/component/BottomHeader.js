@@ -5,6 +5,7 @@ import { Octicons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import { Fontisto } from '@expo/vector-icons';
 
 export default (props) => {
     return (
@@ -20,8 +21,8 @@ export default (props) => {
                         <Text style={{ paddingLeft: 9, color: 'blue', marginTop: 5 }}>Home</Text>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity>
-                    <Ionicons name="search-outline" size={24} color="black" />
+                <TouchableOpacity onPress={()=> props.navigation.navigate('Wishlist')}>
+                <Fontisto name="heart-alt" size={23} color="black" />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=> props.navigation.navigate('AddToCart')}>
                 <FontAwesome name="opencart" size={24} color="black" />

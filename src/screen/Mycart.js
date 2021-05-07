@@ -16,7 +16,7 @@ class MyCart extends React.Component {
 
         <View style={styles.Container}>
        <View style={{flexDirection:'row',alignItems:'center',padding:30}}>
-       <TouchableOpacity><Entypo name="cross" size={24} color="#171717" /></TouchableOpacity>
+       <TouchableOpacity onPress={() => this.props.navigation.goBack()}><Entypo name="cross" size={24} color="#171717" /></TouchableOpacity>
        <Text style={{fontSize:22,color:'#000',fontFamily:'Poppins',paddingLeft:10}}>My Cart</Text>
        </View>
        <CartPrice/>

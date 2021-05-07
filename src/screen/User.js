@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import {View,TouchableOpacity,TextInput,Text, StyleSheet,Image} from 'react-native'
+import {View,TouchableOpacity,TextInput,Text, StyleSheet,Image,Linking} from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler';
 import Smallchair from '../component/Smallchair';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -10,6 +10,7 @@ import { Feather } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Link } from '@react-navigation/native';
 
 class User extends React.Component {
     render() {
@@ -89,6 +90,30 @@ class User extends React.Component {
                         Share 
                     </Text>
                     </View>
+                    <TouchableOpacity onPress={()=> Linking.openURL('whatsapp://send?text=hello&phone=+923346612652') }style={{flexDirection:'row',paddingVertical:10}}>
+                    <Text>
+                    <MaterialCommunityIcons name="whatsapp" size={24} color="red" />
+                    </Text>
+                    <Text style={{paddingLeft:10,fontFamily:'Poppins'}}>
+                        Whatsapp 
+                    </Text>
+                    </TouchableOpacity >
+                    <View style={{flexDirection:'row',paddingVertical:10}}>
+                    <Text>
+                    <MaterialCommunityIcons name="instagram" size={24} color="red" />
+                    </Text>
+                    <Text style={{paddingLeft:10,fontFamily:'Poppins'}}>
+                        Instagram
+                    </Text>
+                    </View>
+                    <TouchableOpacity onPress={()=> Linking.openURL('https://www.facebook.com/Furniture-Shop-105691648354389')} style={{flexDirection:'row',paddingVertical:10}}>
+                    <Text>
+                    <MaterialCommunityIcons name="facebook" size={24} color="red" />
+                    </Text>
+                    <Text style={{paddingLeft:10,fontFamily:'Poppins'}}>
+                        Facebook
+                    </Text>
+                    </TouchableOpacity >
                     
 
 

@@ -20,7 +20,7 @@ import List from './src/screen/List';
 import Forgetpass from './src/screen/Forgetpass';
 import SuccessfulRegister from './src/screen/SuccessfulRegister';
 import Landing from './src/screen/Landing';
-import Todo from './src/screen/Todo';
+// import Todo from './src/screen/Todo';
 
 import WishList from './src/screen/Wishlist'
 
@@ -46,7 +46,7 @@ import store from './src/store/Store';
 import { startClock } from 'react-native-reanimated';
 import Wishlist from './src/screen/Wishlist';
 
-
+ 
 
  
 const Stack = createStackNavigator();
@@ -64,6 +64,7 @@ class App extends React.Component {
       Poppin: require('./assets/fonts/Poppins-Bold.ttf'),
       sp: require('./assets/fonts/sf-ui-display-bold-58646a511e3d9.otf'),
       sf: require('./assets/fonts/sf-ui-display-semibold-58646eddcae92.otf'),
+      Rock: require('./assets/fonts/RockSalt-Regular.ttf'),
 
     });
     this.setState({ fontsLoaded: true });
@@ -73,7 +74,7 @@ class App extends React.Component {
   render() {
     return (
       this.state.fontsLoaded ?
-      <Provider store={store}>
+      // <Provider store={store}>
         <NavigationContainer>
 
           <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
@@ -93,7 +94,7 @@ class App extends React.Component {
             <Stack.Screen name="Wishlist" component={Wishlist} />
             <Stack.Screen name="SuccessfulRegister" component={SuccessfulRegister} />
             <Stack.Screen name="Landing" component={Landing} />
-            <Stack.Screen name="Todo" component={Todo} />
+             {/* <Stack.Screen name="Todo" component={Todo} /> */}
 
             
             {/* <Stack.Screen name="Forgetpass" component={Forgetpass} /> */}
@@ -103,7 +104,7 @@ class App extends React.Component {
           </Stack.Navigator>
 
         </NavigationContainer>
-        </Provider>
+      //  </Provider>
         :
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <ActivityIndicator size='large' color='red' />

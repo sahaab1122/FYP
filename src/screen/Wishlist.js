@@ -13,12 +13,12 @@ class Wishlist extends React.Component {
         return (
 
 
-            <View style={{ paddingTop: 20 }}>
+            <View style={{ paddingTop: 20,paddingBottom:10 }}>
                 <ImageBackground resizeMode='stretch' source={require('../../assets/LogBack.png')} style={{
                     width: "100%", height: '100%', minHeight: Dimensions.get('window').height, position: 'absolute', alignItems: 'center',
 
                 }} />
-                <View style={{ backgroundColor: '#F5F8FA', height: 50, width: "100%",flexDirection:'row',justifyContent:'space-between' }}>
+                <View style={{ backgroundColor: '#F5F8FA',  flexDirection:'row',justifyContent:'space-between' }}>
                     
                     <Text style={{ fontFamily: 'Poppins', fontSize: 20, paddingHorizontal: 20,alignSelf:'center' }}>
                         Watch List

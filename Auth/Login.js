@@ -89,7 +89,8 @@ class Login extends React.Component {
                 }} />
 
                 <ScrollView contentContainerStyle={{ minHeight: Dimensions.get('window').height, justifyContent: 'space-evenly' }} showsVerticalScrollIndicator={false} >
-                    <Text style={{ fontFamily: 'sp', fontSize: 23, textAlign: 'center' }}>Mughal</Text>
+                    {/* <Text style={{ fontFamily: 'sp', fontSize: 23, textAlign: 'center',fontFamily:'Rock' }}>MUGHAL FURNITURE</Text> */}
+                    <Image source={require('../assets/product/Logofinal.png')} style={{width:"50%",height:'20%',alignSelf:'center'}} />
                     {/* <Lets /> */}
                     <Middle />
 
@@ -113,7 +114,7 @@ class Login extends React.Component {
                         </TouchableOpacity>
                         {/* <Btn onPress={() => this.props.navigation.navigate('Home')} text="Login" color='#000DAE' width="90%" /> */}
                         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-                            <Btn text="Facebook" color='#97aabd' width="43%" />
+                            <Btn text="Faceook" color='#97aabd' width="43%" />
                             <Btn text="Google" color='#97aabd' width="43%" />
 
                         </View>
