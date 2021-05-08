@@ -20,6 +20,7 @@ import List from './src/screen/List';
 import Forgetpass from './src/screen/Forgetpass';
 import SuccessfulRegister from './src/screen/SuccessfulRegister';
 import Landing from './src/screen/Landing';
+import Categories from './src/screen/Categories'
 // import Todo from './src/screen/Todo';
 
 import WishList from './src/screen/Wishlist'
@@ -27,17 +28,17 @@ import WishList from './src/screen/Wishlist'
 
 
 // import Rapp from './src/store/redux/Rapp';
-import AddCart from './src/component/AddCart'
-import BottomHeader from './src/component/BottomHeader';
-import Btn from './src/component/Btn';
-import Card from './src/component/Card';
-import Carousel from './src/component/Carousel';
-import CartPrice from './src/component/CartPrice';
-import EmptyCart from './src/component/EmptyCart';
-import Inputfield from './src/component/Inputfield';
-import Lets from './src/component/Lets';
-import Middle from './src/component/Middle';
-import Smallchair from './src/component/Smallchair';
+// import AddCart from './src/component/AddCart'
+// import BottomHeader from './src/component/BottomHeader';
+// import Btn from './src/component/Btn';
+// import Card from './src/component/Card';
+// import Carousel from './src/component/Carousel';
+// import CartPrice from './src/component/CartPrice';
+// import EmptyCart from './src/component/EmptyCart';
+// import Inputfield from './src/component/Inputfield';
+// import Lets from './src/component/Lets';
+// import Middle from './src/component/Middle';
+// import Smallchair from './src/component/Smallchair';
 
 import { ActivityIndicator, Text, View } from 'react-native';
 import Counter from './src/store/redux/Counter';
@@ -78,7 +79,7 @@ class App extends React.Component {
         <NavigationContainer>
 
           <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
-            initialRouteName="Landing"    headerMode='none' >
+            initialRouteName="Categories"    headerMode='none' >
             <Stack.Screen name="AddToCart" component={AddToCart} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
@@ -94,6 +95,7 @@ class App extends React.Component {
             <Stack.Screen name="Wishlist" component={Wishlist} />
             <Stack.Screen name="SuccessfulRegister" component={SuccessfulRegister} />
             <Stack.Screen name="Landing" component={Landing} />
+            <Stack.Screen name="Categories" component={Categories } />
              {/* <Stack.Screen name="Todo" component={Todo} /> */}
 
             
