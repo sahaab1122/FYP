@@ -103,8 +103,8 @@ class Home extends React.Component {
                 <Inputfield text='Search Now' />
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                         <TouchableOpacity style={{ padding: 20 }}><Text style={{ fontFamily: 'sp', fontSize: 12 }}>Chair.</Text></TouchableOpacity>
-                        <TouchableOpacity  style={{ padding: 20 }}><Text>Cupboard</Text></TouchableOpacity>
-                        <TouchableOpacity style={{ padding: 20 }}><Text>Table</Text></TouchableOpacity>
+                        <TouchableOpacity   style={{ padding: 20 }}><Text>Cupboard</Text></TouchableOpacity>
+                        <TouchableOpacity onPress={()=> this.props.navigation.navigate('Categories')} style={{ padding: 20 }}><Text>Table</Text></TouchableOpacity>
                         <TouchableOpacity style={{ padding: 20 }}><Text>Accesso</Text></TouchableOpacity>
                         <TouchableOpacity style={{ padding: 20 }}><Text>Furniture</Text></TouchableOpacity>
                         <TouchableOpacity style={{ padding: 20 }}><Text>Elighte</Text></TouchableOpacity>

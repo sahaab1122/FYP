@@ -79,7 +79,7 @@ class App extends React.Component {
         <NavigationContainer>
 
           <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
-            initialRouteName="Categories"    headerMode='none' >
+            initialRouteName="Home"    headerMode='none' >
             <Stack.Screen name="AddToCart" component={AddToCart} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
