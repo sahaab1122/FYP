@@ -52,6 +52,32 @@ class Register extends React.Component {
 
 
     }
+    registerHandler = async (e) => {
+        e.preventDefault()
+        if (this.state.password !== this.state.confirmPassword) {
+            return alert('Passeord not match')
+        }
+        this.props.setLoading(true)
+        let user = {
+            firstName: this.state.Fname.trim(),
+            lastName: this.state.Lname.trim(),
+            email: this.state.email.trim(),
+            password: this.state.password,
+            Cpassword: this.state.Cpassword,
+            phone: this.state.phone.trim(),
+           
+           
+            
+        }
+        let res = await api.registerUser(user)
+        if (res) {
+            await this.props._login(this.state.email, this.state.password)
+            window.location.replace("/")
+
+
+        }
+        this.props.setLoading(false)
+    }
     // state = {
     //     firstName: '',
     //     lastName: '',

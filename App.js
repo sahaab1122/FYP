@@ -21,6 +21,7 @@ import Forgetpass from './src/screen/Forgetpass';
 import SuccessfulRegister from './src/screen/SuccessfulRegister';
 import Landing from './src/screen/Landing';
 import Categories from './src/screen/Categories'
+import CompleteOrder from './src/screen/CompleteOrder';
 // import Todo from './src/screen/Todo';
 
 import WishList from './src/screen/Wishlist'
@@ -79,7 +80,7 @@ class App extends React.Component {
         <NavigationContainer>
 
           <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
-            initialRouteName="Home"    headerMode='none' >
+            initialRouteName="Landing"    headerMode='none' >
             <Stack.Screen name="AddToCart" component={AddToCart} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
@@ -96,6 +97,7 @@ class App extends React.Component {
             <Stack.Screen name="SuccessfulRegister" component={SuccessfulRegister} />
             <Stack.Screen name="Landing" component={Landing} />
             <Stack.Screen name="Categories" component={Categories } />
+            <Stack.Screen name="CompleteOrder" component={CompleteOrder} />
              {/* <Stack.Screen name="Todo" component={Todo} /> */}
 
             

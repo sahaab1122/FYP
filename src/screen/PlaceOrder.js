@@ -54,7 +54,7 @@ class PlaceOrder extends React.Component {
                     <Text>$900</Text>
                 </View>
                 <View  >
-                    <Btn text="Place Order" color='#000DAE' width="100%" />
+                    <Btn onPress={()=> this.props.navigation.navigate('CompleteOrder')} text="Place Order" color='#000DAE' width="100%" />
                 </View>
 
 

@@ -36,6 +36,23 @@ class Login extends React.Component {
 
 
     }
+
+    login = async (e) => {
+        e.preventDefault()
+        this.props.setLoading(true)
+        let res = await this.props._login(this.state.email.trim(), this.state.password.trim())
+        if (res) {
+
+            if (this.props.admin) {
+                this.props.admin()
+            }
+            else {
+                window.history.back()
+
+            }
+        }
+        this.props.setLoading(false)
+    }
     // }else{
     //   this.props.Login(this.state.text);
     // }
@@ -188,7 +205,18 @@ const styles = StyleSheet.create({
 
 
 
+const mapState = state => {
+    return {
+        logged: state.authReducer.logged,
+        loading: state.globalReducer.loading,
+    }
+}
+const mapDispatch = dispatch => {
+    return {
+        _login: (email, pass) => dispatch(_login(email, pass)),
+        setLoading: (bol) => dispatch(set_loading(bol)),
+    }
+}
 
 
-
-export default Login
+export default connnect(mapState, mapDispatch) (Login)
