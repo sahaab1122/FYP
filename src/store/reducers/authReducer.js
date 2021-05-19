@@ -1,3 +1,4 @@
+import Register from '../../Auth/Register'
 import { LOGIN, LOGOUT, UPDATE_INFO, SET_LOGGED, SET_LANGUAGE, SET_CITY } from '../actions/types'
 
 const initialState = {
@@ -7,6 +8,15 @@ const initialState = {
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN:
+            {
+                // console.log(action.coin)
+                return {
+                    ...state,
+                    logged: true, token: action.token, user: action.user,
+
+                }
+            }
+            case Register:
             {
                 // console.log(action.coin)
                 return {

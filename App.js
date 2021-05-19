@@ -8,11 +8,11 @@ import SplashScreen from  "react-native-splash-screen";
 // import Forgetpass from './src/screen/Forgetpass';
 import AddToCart from './src/screen/AddToCart';
 import Home from './src/screen/Home';
-import Login from './Auth/Login'
+import Login from './src/Auth/Login'
 import MyCart from './src/screen/MyCart';
 import Next from './src/screen/Next';
 import PlaceOrder from './src/screen/PlaceOrder'
-import Register from './Auth/Register';
+import Register from './src/Auth/Register';
 import RegisterLogin from './src/screen/RegisterLogin';
 import User from './src/screen/User';
 import Form from './src/screen/Form';
@@ -42,10 +42,10 @@ import WishList from './src/screen/Wishlist'
 // import Smallchair from './src/component/Smallchair';
 
 import { ActivityIndicator, Text, View } from 'react-native';
-import Counter from './src/store/redux/Counter';
-import { Provider } from 'react-redux';
-import store from './src/store/Store';
-import { startClock } from 'react-native-reanimated';
+// import Counter from './src/store/redux/Counter';
+// import { Provider } from 'react-redux';
+// import store from './src/store/Store';
+// import { startClock } from 'react-native-reanimated';
 import Wishlist from './src/screen/Wishlist';
 
  
@@ -80,7 +80,7 @@ class App extends React.Component {
         <NavigationContainer>
 
           <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
-            initialRouteName="Landing"    headerMode='none' >
+            initialRouteName="Register"    headerMode='none' >
             <Stack.Screen name="AddToCart" component={AddToCart} />
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Login" component={Login} />
@@ -89,8 +89,7 @@ class App extends React.Component {
             <Stack.Screen name="PlaceOrder" component={PlaceOrder} />
             <Stack.Screen name="Register" component={Register} />
             <Stack.Screen name="RegisterLogin" component={RegisterLogin} />
-            <Stack.Screen name="Form" component={Form}/>
-            <Stack.Screen name="List" component={List}/>
+            
             <Stack.Screen name="User" component={User} />
             <Stack.Screen name="Forgetpass" component={Forgetpass} />
             <Stack.Screen name="Wishlist" component={Wishlist} />

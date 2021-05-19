@@ -2,10 +2,12 @@
 import React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import { ImageBackground, uri, StyleSheet, TextInput, View, TouchableOpacity, Text, Image, SafeAreaView, KeyboardAvoidingView, Dimensions, Platform, ScrollView } from 'react-native';
-import Middle from '../src/component/Middle';
-import Btn from '../src/component/Btn';
-import Lets from '../src/component/Lets';
-import Inputfield from '../src/component/Inputfield';
+import Middle from '../component/Middle';
+import Btn from '../component/Btn';
+import Lets from '../component/Lets';
+import Inputfield from '../component/Inputfield';
+import api from '../api/api';
+import path from '../api/path';
 
 
 
@@ -15,30 +17,38 @@ class Login extends React.Component {
         super();
         this.state = {
             text: '',
-            email: '',
+            email: ' ',
             password: '',
         }
     }
-    addToReduc = () => {
+
+
+
+    addToReduc = async () => {
 
         if (this.state.email == '') {
             alert('Please write Email')
         }
-        
+
         else if (this.state.password == '') {
             alert('Please write PASSWORD  ')
         }
-        else  {
-            this.props.navigation.navigate('Home')
+        else {
+            let param = {
+                "email": this.state.email,
+                "password": this.state.password
+            }
+            let response = await api(path.login, "POST",param)
+            alert(response.username)
         }
-       
+
 
 
 
     }
 
     login = async (e) => {
-        e.preventDefault()
+        
         this.props.setLoading(true)
         let res = await this.props._login(this.state.email.trim(), this.state.password.trim())
         if (res) {
@@ -100,31 +110,31 @@ class Login extends React.Component {
 
             <View style={{ height: '100%' }}>
 
-                <ImageBackground resizeMode='stretch' source={require('../assets/LogBack.png')} style={{
+                <ImageBackground resizeMode='stretch' source={require('../../assets/LogBack.png')} style={{
                     width: "100%", height: '100%', minHeight: Dimensions.get('window').height, position: 'absolute', alignItems: 'center',
 
                 }} />
 
                 <ScrollView contentContainerStyle={{ minHeight: Dimensions.get('window').height, justifyContent: 'space-evenly' }} showsVerticalScrollIndicator={false} >
                     {/* <Text style={{ fontFamily: 'sp', fontSize: 23, textAlign: 'center',fontFamily:'Rock' }}>MUGHAL FURNITURE</Text> */}
-                    <Image source={require('../assets/product/Logofinal.png')} style={{width:"50%",height:'20%',alignSelf:'center'}} />
+                    <Image source={require('../../assets/product/Logofinal.png')} style={{ width: "50%", height: '20%', alignSelf: 'center' }} />
                     {/* <Lets /> */}
                     <Middle />
 
                     <View style={{ width: '100%' }} >
 
                         {/* <Inputfield text="Email" keyboardType="email-address" /> */}
-                        <TextInput  keyboardType={'email-address'}  style={styles.inputfield} placeholder="enter email"
+                        <TextInput keyboardType={'email-address'} style={styles.inputfield} placeholder="enter email"
                             onChangeText={(email) => { this.setState({ email }) }}
                         />
-                        
+
                         {/* <Inputfield text="Password" /> */}
                         <TextInput style={styles.inputfield} placeholder="enter password" secureTextEntry={true}
                             onChangeText={(password) => { this.setState({ password }) }}
                         />
-                        <TouchableOpacity onPress={()=> this.props.navigation.navigate('Forgetpass')}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Forgetpass')}>
 
-                            <Text style={{alignSelf:'flex-end',paddingHorizontal:20,paddingTop:10,color:'blue'}}>Forget password</Text>
+                            <Text style={{ alignSelf: 'flex-end', paddingHorizontal: 20, paddingTop: 10, color: 'blue' }}>Forget password</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => this.addToReduc()} style={styles.text} >
                             <Text style={{ color: 'white', }}>Login</Text>
@@ -205,18 +215,19 @@ const styles = StyleSheet.create({
 
 
 
-const mapState = state => {
-    return {
-        logged: state.authReducer.logged,
-        loading: state.globalReducer.loading,
-    }
-}
-const mapDispatch = dispatch => {
-    return {
-        _login: (email, pass) => dispatch(_login(email, pass)),
-        setLoading: (bol) => dispatch(set_loading(bol)),
-    }
-}
+// const mapState = state => {
+//     return {
+//         logged: state.authReducer.logged,
+//         loading: state.globalReducer.loading,
+//     }
+// }
+// const mapDispatch = dispatch => {
+//     return {
+//         _login: (email, pass) => dispatch(_login(email, pass)),
+//         setLoading: (bol) => dispatch(set_loading(bol)),
+//     }
+// }
 
 
-export default connnect(mapState, mapDispatch) (Login)
+// export default connnect(mapState, mapDispatch)(Login)
+export default Login

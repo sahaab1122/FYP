@@ -37,6 +37,7 @@
     "react-shopping-cart": "^1.9.5",
     "react-whatsapp": "^0.2.1",
     "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
     "rxjs": "^6.6.7"
   },
   "devDependencies": {

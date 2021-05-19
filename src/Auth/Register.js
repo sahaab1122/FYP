@@ -2,13 +2,14 @@
 import React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import { ImageBackground, uri, StyleSheet, TextInput, View, TouchableOpacity, Text, Image, SafeAreaView, KeyboardAvoidingView, Dimensions, Platform, ScrollView } from 'react-native';
-import Middle from '../src/component/Middle';
-import Btn from '../src/component/Btn';
-import Lets from '../src/component/Lets';
-import Inputfield from '../src/component/Inputfield';
+import Middle from '../component/Middle';
+import Btn from '../component/Btn';
+import Lets from '../component/Lets';
+import Inputfield from '../component/Inputfield';
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
-
+import api from '../api/api';
+import path from '../api/path';
 
 class Register extends React.Component {
     constructor() {
@@ -45,7 +46,12 @@ class Register extends React.Component {
             alert('Please write Phone and Email  ')
         }
         else {
-            this.props.navigation.navigate('Login')
+            let param = {
+                "email": this.state.email,
+                "password": this.state.password
+            }
+            let response = await api(path.Register, "POST",param)
+            alert(response.message)
         }
 
 
@@ -97,7 +103,7 @@ class Register extends React.Component {
 
             <View style={{ height: '100%' }}>
 
-                <ImageBackground resizeMode='stretch' source={require('../assets/LogBack.png')} style={{
+                <ImageBackground resizeMode='stretch' source={require('../../assets/LogBack.png')} style={{
                     width: "100%", height: '100%', minHeight: Dimensions.get('window').height, position: 'absolute', alignItems: 'center',
 
                 }} />
