@@ -1,10 +1,9 @@
-import { LOGIN, LOGOUT, UPDATE_INFO, SET_LOGGED, SET_LANGUAGE,   } from './types';
+import { LOGIN, LOGOUT, UPDATE,   } from './Types';
 
 
-export const login = (token, user) => (
+export const login = (  user) => (
     {
-        type: LOGIN,
-        token: token,
+        type: LOGIN, 
         user,
     }
 )
@@ -17,7 +16,7 @@ export const logout = () => (
 
 export const update_user = (info) => (
     {
-        type: UPDATE_INFO,
+        type: UPDATE,
         info: info
     }
 )

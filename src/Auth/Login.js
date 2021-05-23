@@ -8,6 +8,8 @@ import Lets from '../component/Lets';
 import Inputfield from '../component/Inputfield';
 import api from '../api/api';
 import path from '../api/path';
+import { _login } from '../store/middlewares/authMiddleware';
+import { connect } from 'react-redux';
 
 
 
@@ -37,9 +39,8 @@ class Login extends React.Component {
             let param = {
                 "email": this.state.email,
                 "password": this.state.password
-            }
-            let response = await api(path.login, "POST",param)
-            alert(response.username)
+            } 
+            this.props._login(param)
         }
 
 
@@ -49,19 +50,14 @@ class Login extends React.Component {
 
     login = async (e) => {
         
-        this.props.setLoading(true)
-        let res = await this.props._login(this.state.email.trim(), this.state.password.trim())
-        if (res) {
-
-            if (this.props.admin) {
-                this.props.admin()
-            }
-            else {
-                window.history.back()
-
-            }
+        // this.props.setLoading(true)
+        let param = {
+            "email": this.state.email,
+            "password": this.state.password
         }
-        this.props.setLoading(false)
+        let res = await this.props._login(param)
+                   
+        // this.props.setLoading(false)
     }
     // }else{
     //   this.props.Login(this.state.text);
@@ -192,7 +188,20 @@ const styles = StyleSheet.create({
 });
 
 
+const mapState = state => {
+    return {
+        logged: state.authReducer.logged,
+        // loading: state.globalReducer.loading,
+    }
+}
+const mapDispatch = dispatch => {
+    return {
+        _login: (param) => dispatch(_login(param)),
+        setLoading: (bol) => dispatch(set_loading(bol)),
+    }
+}
 
+export default connect(mapState, mapDispatch)(Login)
 
 
 
@@ -230,4 +239,3 @@ const styles = StyleSheet.create({
 
 
 // export default connnect(mapState, mapDispatch)(Login)
-export default Login

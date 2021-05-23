@@ -1,31 +1,11 @@
 import React, { Profiler } from 'react';
 import { createStackNavigator, TransitionPresets, TransitionSpecs } from '@react-navigation/stack';
-
-import { NavigationContainer } from '@react-navigation/native';
-import * as Font from 'expo-font'
-import SplashScreen from  "react-native-splash-screen";
-
-// import Forgetpass from './src/screen/Forgetpass';
-import AddToCart from './src/screen/AddToCart';
-import Home from './src/screen/Home';
-import Login from './src/Auth/Login'
-import MyCart from './src/screen/MyCart';
-import Next from './src/screen/Next';
-import PlaceOrder from './src/screen/PlaceOrder'
-import Register from './src/Auth/Register';
-import RegisterLogin from './src/screen/RegisterLogin';
-import User from './src/screen/User';
-import Form from './src/screen/Form';
-import List from './src/screen/List';
-import Forgetpass from './src/screen/Forgetpass';
-import SuccessfulRegister from './src/screen/SuccessfulRegister';
-import Landing from './src/screen/Landing';
-import Categories from './src/screen/Categories'
-import CompleteOrder from './src/screen/CompleteOrder';
+ 
+import * as Font from 'expo-font' 
 // import Todo from './src/screen/Todo';
 
 import WishList from './src/screen/Wishlist'
-
+ import AppNavigator from './AppNavigator'
 
 
 // import Rapp from './src/store/redux/Rapp';
@@ -47,6 +27,9 @@ import { ActivityIndicator, Text, View } from 'react-native';
 // import store from './src/store/Store';
 // import { startClock } from 'react-native-reanimated';
 import Wishlist from './src/screen/Wishlist';
+import { PersistGate } from 'redux-persist/integration/react';
+import Store from './src/store/Store';
+import { Provider } from 'react-redux';
 
  
 
@@ -76,38 +59,11 @@ class App extends React.Component {
   render() {
     return (
       this.state.fontsLoaded ?
-      // <Provider store={store}>
-        <NavigationContainer>
-
-          <Stack.Navigator screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}
-            initialRouteName="Register"    headerMode='none' >
-            <Stack.Screen name="AddToCart" component={AddToCart} />
-            <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="Login" component={Login} />
-            <Stack.Screen name="MyCart" component={MyCart} />
-            <Stack.Screen name="Next" component={Next} />
-            <Stack.Screen name="PlaceOrder" component={PlaceOrder} />
-            <Stack.Screen name="Register" component={Register} />
-            <Stack.Screen name="RegisterLogin" component={RegisterLogin} />
-            
-            <Stack.Screen name="User" component={User} />
-            <Stack.Screen name="Forgetpass" component={Forgetpass} />
-            <Stack.Screen name="Wishlist" component={Wishlist} />
-            <Stack.Screen name="SuccessfulRegister" component={SuccessfulRegister} />
-            <Stack.Screen name="Landing" component={Landing} />
-            <Stack.Screen name="Categories" component={Categories } />
-            <Stack.Screen name="CompleteOrder" component={CompleteOrder} />
-             {/* <Stack.Screen name="Todo" component={Todo} /> */}
-
-            
-            {/* <Stack.Screen name="Forgetpass" component={Forgetpass} /> */}
-            {/* <Stack.Screen name="Rapp" component={Rapp}/> */}
-           
-
-          </Stack.Navigator>
-
-        </NavigationContainer>
-      //  </Provider>
+      <PersistGate loading={false} persistor={Store.persistor}>
+      <Provider store={Store.store}>
+         <AppNavigator />
+       </Provider>
+       </PersistGate>
         :
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <ActivityIndicator size='large' color='red' />

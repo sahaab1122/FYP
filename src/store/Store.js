@@ -1,10 +1,24 @@
-// import { createStore, combineReducers } from 'redux';
-// import foodReducer from './reducers/foodReducer';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import authReducer from './reducers/authReducer'
 
-// const rootReducer = combineReducers({
-//   foodReducer: foodReducer
-// })
+import thunk from 'redux-thunk'
+import { persistStore, persistReducer } from 'redux-persist'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// const store =   createStore(rootReducer);
+const rootReducer = combineReducers({
+    authReducer,
+    
+})
 
-// export default store;  
+
+const persistConfig = {
+    key: 'root',
+    storage:AsyncStorage,
+    blacklist: ['globalReducer','authReducer']
+}
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+const store = createStore(persistedReducer, applyMiddleware(thunk));
+const persistor = persistStore(store)
+ 
+export default { store, persistor };

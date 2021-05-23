@@ -12,6 +12,20 @@ import api from '../api/api';
 import path from '../api/path';
 
 class Register extends React.Component {
+    
+//   async  componentDidMount(){
+//     let param = {
+//         "email":"sajaaj",
+//         "password": "12345678",
+//         "firstName":'sahaab ',
+//         "lastName":'sabir',
+//         "Phone":'000',
+
+//     }
+//      await api(path.register, "POST",param).then((res)=>
+//      console.log(res))
+  
+// }
     constructor() {
         super();
         this.state = {
@@ -20,11 +34,11 @@ class Register extends React.Component {
             email: '',
             password: '',
             Cpassword: '',
-            Phone: '',
+            phone: '',
 
         }
     }
-    addToReduc = () => {
+    addToReduc =async () => {
 
         if (this.state.Fname == '') {
             alert('Please write First Name')
@@ -42,22 +56,27 @@ class Register extends React.Component {
         else if (this.state.Cpassword == '') {
             alert('Please write Confirm PASSWORD  ')
         }
-        else if (this.state.Phone == '') {
+        else if (this.state.phone == '') {
             alert('Please write Phone and Email  ')
         }
         else {
             let param = {
+                "firstName": this.state.Fname, 
+                "lastName": this.state.Lname,
+                "phone": this.state.phone, 
                 "email": this.state.email,
-                "password": this.state.password
+                "password": this.state.password,
             }
-            let response = await api(path.Register, "POST",param)
-            alert(response.message)
+            let response =  await api(path.register, "POST",param)
+            // alert(response.message)
+            console.log(response.message)
         }
 
 
 
 
     }
+ 
     registerHandler = async (e) => {
         e.preventDefault()
         if (this.state.password !== this.state.confirmPassword) {
@@ -67,10 +86,10 @@ class Register extends React.Component {
         let user = {
             firstName: this.state.Fname.trim(),
             lastName: this.state.Lname.trim(),
+            phone: this.state.phone.trim(),
             email: this.state.email.trim(),
             password: this.state.password,
             Cpassword: this.state.Cpassword,
-            phone: this.state.phone.trim(),
            
            
             
@@ -122,6 +141,10 @@ class Register extends React.Component {
                         <TextInput style={styles.inputfield} placeholder="Last Name"
                             onChangeText={(Lname) => { this.setState({ Lname }) }}
                         />
+                        {/* <Inputfield  text="Phone or Mail" /> */}
+                        <TextInput  keyboardType={'email-address'}  style={styles.inputfield} placeholder="Phone or Mail"
+                            onChangeText={(phone) => { this.setState({ phone }) }}
+                        />
                         {/* <Inputfield text="Email" keyboardType="email-address" /> */}
                         <TextInput keyboardType={'email-address'} style={styles.inputfield} placeholder="Email" 
                             onChangeText={(email) => { this.setState({ email }) }}
@@ -140,10 +163,7 @@ class Register extends React.Component {
                         <TextInput style={styles.inputfield} placeholder="Confirm Password" secureTextEntry={true}
                             onChangeText={(Cpassword) => { this.setState({ Cpassword }) }}
                         />
-                        {/* <Inputfield  text="Phone or Mail" /> */}
-                        <TextInput  keyboardType={'email-address'}  style={styles.inputfield} placeholder="Phone or Mail"
-                            onChangeText={(Phone) => { this.setState({ Phone }) }}
-                        />
+                        
                         {/* <Btn onPress={() => this.props.navigation.navigate('Login')}  text="Register" color='#000DAE' width="90%" /> */}
                         <TouchableOpacity onPress={() => this.addToReduc()} style={styles.text} >
                             <Text style={{ color: 'white', }}>Register</Text>

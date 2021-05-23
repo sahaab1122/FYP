@@ -1,8 +1,9 @@
-import Register from '../../Auth/Register'
-import { LOGIN, LOGOUT, UPDATE_INFO, SET_LOGGED, SET_LANGUAGE, SET_CITY } from '../actions/types'
+
+import { LOGIN } from '../actions/Types';
+
 
 const initialState = {
-    logged: false, token: '', user: [], lang: 'en', city: false,
+    logged: false,   user: [], 
 }
 
 const authReducer = (state = initialState, action) => {
@@ -12,19 +13,11 @@ const authReducer = (state = initialState, action) => {
                 // console.log(action.coin)
                 return {
                     ...state,
-                    logged: true, token: action.token, user: action.user,
+                    logged: true,  user: action.user,
 
                 }
             }
-            case Register:
-            {
-                // console.log(action.coin)
-                return {
-                    ...state,
-                    logged: true, token: action.token, user: action.user,
-
-                }
-            }
+     
             default:
                 return state;
     

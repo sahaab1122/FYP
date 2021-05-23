@@ -13,7 +13,7 @@ import Next from './Next';
 class Landing extends React.Component {
     componentDidMount(){
         setTimeout(() => {
-            this.props.navigation.navigate('Next')
+            this.props.navigation.navigate('Login')
             
         }, 4000);
     }
