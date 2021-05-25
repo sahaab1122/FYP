@@ -12,33 +12,34 @@ import api from '../api/api';
 import path from '../api/path';
 
 class Register extends React.Component {
-    
-//   async  componentDidMount(){
-//     let param = {
-//         "email":"sajaaj",
-//         "password": "12345678",
-//         "firstName":'sahaab ',
-//         "lastName":'sabir',
-//         "Phone":'000',
 
-//     }
-//      await api(path.register, "POST",param).then((res)=>
-//      console.log(res))
-  
-// }
+    //   async  componentDidMount(){
+    //     let param = {
+    //         "email":"sajaaj",
+    //         "password": "12345678",
+    //         "firstName":'sahaab ',
+    //         "lastName":'sabir',
+    //         "Phone":'000',
+
+    //     }
+    //      await api(path.register, "POST",param).then((res)=>
+    //      console.log(res))
+
+    // }
     constructor() {
         super();
         this.state = {
             Fname: '',
             Lname: '',
             email: '',
+            city:'',
             password: '',
             Cpassword: '',
             phone: '',
 
         }
     }
-    addToReduc =async () => {
+    addToReduc = async () => {
 
         if (this.state.Fname == '') {
             alert('Please write First Name')
@@ -49,6 +50,9 @@ class Register extends React.Component {
         }
         else if (this.state.email == '') {
             alert('Please write Email  ')
+        }
+        else if (this.state.city == '') {
+            alert('Please write city  ')
         }
         else if (this.state.password == '') {
             alert('Please write PASSWORD  ')
@@ -61,26 +65,28 @@ class Register extends React.Component {
         }
         else {
             let param = {
-                "firstName": this.state.Fname, 
+                "firstName": this.state.Fname,
                 "lastName": this.state.Lname,
-                "phone": this.state.phone, 
+                "phone": this.state.phone,
                 "email": this.state.email,
+                "city": this.state.city,
                 "password": this.state.password,
             }
-            let response =  await api(path.register, "POST",param)
+            let response = await api(path.register, "POST", param)
             // alert(response.message)
             console.log(response.message)
+            alert(response.message)
         }
 
 
 
 
     }
- 
+
     registerHandler = async (e) => {
         e.preventDefault()
         if (this.state.password !== this.state.confirmPassword) {
-            return alert('Passeord not match')
+            return alert('Password not match')
         }
         this.props.setLoading(true)
         let user = {
@@ -88,11 +94,12 @@ class Register extends React.Component {
             lastName: this.state.Lname.trim(),
             phone: this.state.phone.trim(),
             email: this.state.email.trim(),
+            city: this.state.city.trim(),
             password: this.state.password,
             Cpassword: this.state.Cpassword,
-           
-           
-            
+
+
+
         }
         let res = await api.registerUser(user)
         if (res) {
@@ -142,12 +149,16 @@ class Register extends React.Component {
                             onChangeText={(Lname) => { this.setState({ Lname }) }}
                         />
                         {/* <Inputfield  text="Phone or Mail" /> */}
-                        <TextInput  keyboardType={'email-address'}  style={styles.inputfield} placeholder="Phone or Mail"
+                        <TextInput keyboardType={'email-address'} style={styles.inputfield} placeholder="Phone or Mail"
                             onChangeText={(phone) => { this.setState({ phone }) }}
                         />
                         {/* <Inputfield text="Email" keyboardType="email-address" /> */}
-                        <TextInput keyboardType={'email-address'} style={styles.inputfield} placeholder="Email" 
+                        <TextInput keyboardType={'email-address'} style={styles.inputfield} placeholder="Email"
                             onChangeText={(email) => { this.setState({ email }) }}
+                        />
+
+                        <TextInput keyboardType={'email-address'} style={styles.inputfield} placeholder="City"
+                            onChangeText={(city) => { this.setState({ city }) }}
                         />
                         {/* <Inputfield text="Password" /> */}
                         {/* <View style={[styles.inputfield,{justifyContent:'center'}]} >
@@ -156,14 +167,14 @@ class Register extends React.Component {
                             onChangeText={(password) => { this.setState({ password }) }} 
                             />
                             </View> */}
-                             <TextInput style={styles.inputfield} placeholder="Password" secureTextEntry={true}
+                        <TextInput style={styles.inputfield} placeholder="Password" secureTextEntry={true}
                             onChangeText={(password) => { this.setState({ password }) }}
                         />
                         {/* <Inputfield text="Confirm Password" /> */}
                         <TextInput style={styles.inputfield} placeholder="Confirm Password" secureTextEntry={true}
                             onChangeText={(Cpassword) => { this.setState({ Cpassword }) }}
                         />
-                        
+
                         {/* <Btn onPress={() => this.props.navigation.navigate('Login')}  text="Register" color='#000DAE' width="90%" /> */}
                         <TouchableOpacity onPress={() => this.addToReduc()} style={styles.text} >
                             <Text style={{ color: 'white', }}>Register</Text>
@@ -209,46 +220,11 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'flex-start',
         paddingHorizontal: 10,
-        
-
-
-
-
-
 
     },
 
 
-
-
-
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

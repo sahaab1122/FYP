@@ -1,9 +1,11 @@
 
-import { LOGIN } from '../actions/Types';
+import { connect } from 'react-redux';
+// import { update_user } from '../actions/authActions';
+import { LOGIN, UPDATE } from '../actions/Types';
 
 
 const initialState = {
-    logged: false,   user: [], 
+    logged: false,   user: {},
 }
 
 const authReducer = (state = initialState, action) => {
@@ -21,9 +23,25 @@ const authReducer = (state = initialState, action) => {
             default:
                 return state;
     
+        
+        case UPDATE:
+            {
+                // console.log(action.coin)
+                return {
+                    ...state,
+                    
+                    type: UPDATE,   user: info
+                }
+            }
+     
+        
+    
         }
     
     
     }
-    export default authReducer
+    
+ 
+export default  authReducer
+     
     

@@ -11,22 +11,38 @@ import { FontAwesome } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Link } from '@react-navigation/native';
+import { dispatch } from 'rxjs/internal/observable/pairs';
+import { connect } from 'react-redux';
+import { _login } from '../store/middlewares/authMiddleware';
 
 class User extends React.Component {
+    // componentDidMount() {
+    //     console.log(this.props.user)
+    //     alert(this.props.user.email)
+    // }
+    constructor() {
+        super();
+        this.state = {
+            name: '',
+            email: ' ',
+            phone: '',
+
+        }
+    }
     render() {
         return (
              
        
             <View style={{padding:20,flex:1,justifyContent:'space-evenly'}}>
-                <TouchableOpacity style={{position:'absolute',right:25,top:25}}>
+                <TouchableOpacity onPress={()=> this.props.navigation.navigate('Edituser')}  style={{position:'absolute',right:25,top:25}}>
 
-                <MaterialCommunityIcons name="account-edit-outline" size={24} color="black" />
+                <MaterialCommunityIcons name="account-edit-outline" size={26} color="black" />
                 </TouchableOpacity>
                 <View style={{flexDirection:'row',justifyContent:'flex-start'}}>
 
-              <Image style={{borderRadius:60,width:100,height:100}} source={require('../../assets/profile.jpg')} />
+              <Image style={{borderRadius:60,width:100,height:100}} source={   require('../../assets/profile.jpg')} />
               <Text style={{fontFamily:'sf',paddingLeft:10,textAlignVertical:'center',fontSize:26}}>
-                  Anabella 
+                  {this.props.user.firstName}
                   
               </Text>
 
@@ -36,23 +52,21 @@ class User extends React.Component {
                     <EvilIcons name="location" size={24} color="black" />
                     </Text>
                     <Text style={{paddingLeft:10,fontFamily:'Poppins'}}>
-                        Faisalabad,Pak
+                        {this.props.user.city}
                     </Text>
                     </View>
                     <View style={{flexDirection:'row',paddingVertical:10}}>
                     <Text>
                     <Ionicons name="md-mail-unread-outline" size={24} color="black" />
                     </Text>
-                    <Text style={{paddingLeft:10,fontFamily:'Poppins'}}>
-                        annabella@gmail.com
-                    </Text>
+                    <Text style={{paddingLeft:10,fontFamily:'Poppins'}}>{this.props.user.email}</Text>
                     </View>
                     <View style={{flexDirection:'row',paddingVertical:10}}>
                     <Text>
                     <Ionicons name="md-phone-portrait-outline" size={24} color="black" />
                     </Text>
                     <Text style={{paddingLeft:10,fontFamily:'Poppins'}}>
-                        +923346612652
+                        {this.props.user.phone}
                     </Text>
                     </View>
                     <View style={{flexDirection:'row'}}>
@@ -131,4 +145,19 @@ const styles = StyleSheet.create({
 
 
 });
-export default User
+const mapState = state => {
+    return {
+        logged: state.authReducer.logged,
+        user: state.authReducer.user,
+
+    }
+}
+const mapDispatch = dispatch =>{
+    return{
+        _login:(param) => dispatch(_login(param)),
+        setLoading: (bol) => dispatch(_setLoading(bol)),
+
+
+    }
+}
+export default connect(mapState,mapDispatch)(User)

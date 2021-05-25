@@ -5,5 +5,5 @@ let BASE_URL = 'https://powerful-hamlet-06819.herokuapp.com/'
 export default {
     login: BASE_URL + 'login',
     register: BASE_URL + 'register',
-    edit: BASE_URL + 'edit/',
+    update: BASE_URL + 'update',
 }

@@ -20,8 +20,10 @@ import List from './src/screen/List';
 import Forgetpass from './src/screen/Forgetpass';
 import SuccessfulRegister from './src/screen/SuccessfulRegister';
 import Landing from './src/screen/Landing';
-import Categories from './src/screen/Categories'
+import Categories from './src/screen/Categories';
 import CompleteOrder from './src/screen/CompleteOrder';
+import Edituser from './src/screen/Edituser'
+
 // import Todo from './src/screen/Todo';
 
 import WishList from './src/screen/Wishlist'
@@ -88,6 +90,8 @@ class AppNavigator extends React.Component {
         return (
             <Stack.Navigator headerMode="none" screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}>
                <Stack.Screen name="Landing" component={Landing} />
+               <Stack.Screen name="Next" component={Next} />
+               <Stack.Screen name="RegisterLogin" component={RegisterLogin} />
                <Stack.Screen name="Login" component={Login} />
                <Stack.Screen name="Register" component={Register} />
                <Stack.Screen name="Forgetpass" component={Forgetpass} />
@@ -101,13 +105,13 @@ class AppNavigator extends React.Component {
             <Stack.Screen name="AddToCart" component={AddToCart} />
          
             <Stack.Screen name="MyCart" component={MyCart} />
-            {/* <Stack.Screen name="Next" component={Next} /> */}
+           
             <Stack.Screen name="PlaceOrder" component={PlaceOrder} />
             
-            <Stack.Screen name="RegisterLogin" component={RegisterLogin} />
+           
             
             <Stack.Screen name="User" component={User} />
-            
+            <Stack.Screen name="Edituser"component={Edituser} />
             <Stack.Screen name="Wishlist" component={Wishlist} />
             <Stack.Screen name="SuccessfulRegister" component={SuccessfulRegister} />
             

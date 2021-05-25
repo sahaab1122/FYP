@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import { ImageBackground, uri, StyleSheet, TextInput, View, TouchableOpacity, Text, Image, SafeAreaView, KeyboardAvoidingView, Dimensions, Platform, ScrollView } from 'react-native';
