@@ -4,176 +4,98 @@ import React from 'react';
 import { ImageBackground, uri, StyleSheet, TextInput, View, TouchableOpacity, Text, SafeAreaView, KeyboardAvoidingView, Dimensions, Platform, ScrollView, Image } from 'react-native';
 // import Middle from '../component/Middle';
 import * as ImagePicker from 'expo-image-picker';
-import Btn from '../component/Btn';
-import Lets from '../component/Lets';
-// import Inputfield from '../component/Inputfield';
-// import { Feather } from '@expo/vector-icons';
-// import { Ionicons } from '@expo/vector-icons';
-// import api from '../api/api';
-// import path from '../api/path';
+
+ 
 import { Entypo } from '@expo/vector-icons';
-import { EvilIcons } from '@expo/vector-icons';
+
 import { connect } from 'react-redux';
-import { _login } from '../store/middlewares/authMiddleware';
-import { UPDATE } from '../store/actions/Types';
+import { _login, _updateuser } from '../store/middlewares/authMiddleware';
+
 
 class Edituser extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            name: '',
-            Lname: '',
-            email: '',
-            password: '',
-            Cpassword: '',
-            phone: '',
-            image: '',
-
+            firstName: "",
+            lastName: "",
+            city: "",
+            phone: "",
+            id:props.user._id
         }
     }
-
-    openImagePickerAsync = async () => {
-        let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
-
-
-        let pickerResult = await ImagePicker.launchImageLibraryAsync();
-        console.log(pickerResult);
-        this.setState({ image: pickerResult.uri })
+    componentDidMount() {
+        this.setState(this.props.user)
+        // this.setState({ firstName: user.firstName })
+        // this.setState({ lastName: user.lastName })
+        // this.setState({ city: user.city })
+        // this.setState({ phone: user.phone })  // let user = this.props.user
+      
     }
 
-    // componentDidMount(){
-    //     console.log()
+    // openImagePickerAsync = async () => {
+    //     let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+
+    //     let pickerResult = await ImagePicker.launchImageLibraryAsync();
+       
+    //     this.setState({ image: pickerResult.uri })
     // }
-
-    //   async  componentDidMount(){
-    //     let param = {
-    //         "email":"sajaaj",
-    //         "password": "12345678",
-    //         "firstName":'sahaab ',
-    //         "lastName":'sabir',
-    //         "Phone":'000',
-
-    //     }
-    //      await api(path.register, "POST",param).then((res)=>
-    //      console.log(res))
-
-    // }
-
-    addToReduc = async () => {
-
-        if (this.state.Fname == '') {
-            alert('Please write First Name')
-        }
-
-        else if (this.state.Lname == '') {
-            alert('Please write Last Name  ')
-        }
-        else if (this.state.email == '') {
-            alert('Please write Email  ')
-        }
-        else if (this.state.password == '') {
-            alert('Please write PASSWORD  ')
-        }
-        else if (this.state.Cpassword == '') {
-            alert('Please write Confirm PASSWORD  ')
-        }
-        else if (this.state.phone == '') {
-            alert('Please write Phone and Email  ')
-        }
-        else {
-            let param = {
-                "firstName": this.state.Fname,
-                "lastName": this.state.Lname,
-                "phone": this.state.phone,
-                "email": this.state.email,
-                "city": this.state.city,
-                "password": this.state.password,
-            }
-            this.props._editUser(param)
-        }
-
-
-    }
-        UPDATE = async (e) => {
-
-            // this.props.setLoading(true)
-            let param = {
-                "firstName": this.state.Fname,
-                "lastName": this.state.Lname,
-                "phone": this.state.phone,
-                "email": this.state.email,
-                "city": this.state.city,
-                "password": this.state.password,
-            }
-            let res = await this.props._editUser(param)
-
-            // this.props.setLoading(false)
-        }
-        //     else {
-        //         let param = {
-        //             "firstName": this.state.Fname, 
-        //             "lastName": this.state.Lname,
-        //             "phone": this.state.phone, 
-        //             "email": this.state.email,
-        //             "password": this.state.password,
-        //         }
-        //         let response =  await api(path.register, "POST",param)
-        //         // alert(response.message)
-        //         console.log(response.message)
-        //         alert(response.message)
-        //     }
-
-
-
-
-        // }
-
-        registerHandler = async (e) => {
-            e.preventDefault()
-            if (this.state.password !== this.state.confirmPassword) {
-                return alert('Passeord not match')
-            }
-            this.props.setLoading(true)
-            let user = {
-                firstName: this.state.Fname.trim(),
-                lastName: this.state.Lname.trim(),
-                phone: this.state.phone.trim(),
-                email: this.state.email.trim(),
-                password: this.state.password,
-                Cpassword: this.state.Cpassword,
-
-
-
-            }
-            let res = await api.updateUser(user)
-            if (res) {
-                await this.props._editUser(this.state.email, this.state.password, this.state.firstName, this.state.lastName, this.state.city, this.state.phone)
-                window.location.replace("/")
-
-
-            }
-            this.props.setLoading(false)
-        }
-
-
-
-
-        // state = {
-        //     firstName: '',
-        //     lastName: '',
-        //     email: '',
-        //     address: '',
-        //     password: '',
-        //     confirmPassword: '',
-        //     phone: '',
-
-
-        //     loading: true
-
-        // }
     
+
+ 
+
+     
+    updateUser = async (e) => {
+
+        // this.props.setLoading(true)
+        let param = {
+            "firstName": this.state.Fname,
+            "lastName": this.state.Lname,
+            "phone": this.state.phone,
+            "city": this.state.city,
+        }
+      
+      let res = await this.props._updateuser(param,this.state._id)
+
+        // this.props.setLoading(false)
+    }
+    //     else {
+    //         let param = {
+    //             "firstName": this.state.Fname, 
+    //             "lastName": this.state.Lname,
+    //             "phone": this.state.phone, 
+    //             "email": this.state.email,
+    //             "password": this.state.password,
+    //         }
+    //         let response =  await api(path.register, "POST",param)
+    //         // alert(response.message)
+    //         console.log(response.message)
+    //         alert(response.message)
+    //     }
+
+
+
+
+    // }
+
+
+    // state = {
+    //     firstName: '',
+    //     lastName: '',
+    //     email: '',
+    //     address: '',
+    //     password: '',
+    //     confirmPassword: '',
+    //     phone: '',
+
+
+    //     loading: true
+
+    // }
+
     render() {
-        return (
+         
+         return (
 
             <View style={{ height: '100%' }}>
 
@@ -188,7 +110,7 @@ class Edituser extends React.Component {
 
 
                     <TouchableOpacity onPress={this.openImagePickerAsync} style={{ backgroundColor: '#F5F8FA', borderRadius: 120, width: "27%", height: 110, justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
-                        <Image source={{ uri: this.state.image }} style={{ width: '100%', height: "100%" }} />
+                        <Image source={{ uri: this.state.image || null }} style={{ width: '100%', height: "100%" ,borderRadius:120}} />
                     </TouchableOpacity>
 
 
@@ -199,42 +121,34 @@ class Edituser extends React.Component {
                     <View style={{ width: '100%' }} >
                         {/* <TouchableWithoutFeedback onPress={keyboard.dismiss}/> */}
                         {/* <Inputfield text="First Name" /> */}
-                        <TextInput style={styles.inputfield} placeholder={this.props.user.firstName} />
+                        <TextInput style={styles.inputfield} value={this.state.firstName}
+                            placeholder="First Name"
+                            onChangeText={(firstName) => { this.setState({ firstName }) }}>
+
+                        </TextInput>
 
 
 
-                        {/* <Inputfield text="Last Name" /> */}
-                        <TextInput style={styles.inputfield} placeholder={this.props.user.lastName}
-                            onChangeText={(Lname) => { this.setState({ Lname }) }}
-                        />
-                        {/* <Inputfield  text="Phone or Mail" /> */}
-                        <TextInput keyboardType={'email-address'} style={styles.inputfield} placeholder={this.props.user.phone}
+
+                        <TextInput style={styles.inputfield} value={this.state.lastName}
+                            placeholder="Last Name"
+                            onChangeText={(lastName) => { this.setState({ lastName }) }}>
+                        </TextInput>
+
+                        <TextInput style={styles.inputfield} value={this.state.city}
+
+                            onChangeText={(city) => { this.setState({ city }) }}>
+
+                        </TextInput>
+
+                        <TextInput keyboardType={'phone-pad'} style={styles.inputfield} value={this.state.phone}
+
                             onChangeText={(phone) => { this.setState({ phone }) }}
-                        />
-                        {/* <Inputfield text="Email" keyboardType="email-address" /> */}
-                        <TextInput keyboardType={'email-address'} style={styles.inputfield} placeholder={this.props.user.email}
-                            onChangeText={(email) => { this.setState({ email }) }}
-                        />
-                        <TextInput keyboardType={'email-address'} style={styles.inputfield} placeholder={this.props.user.city}
-                            onChangeText={(city) => { this.setState({ city }) }}
-                        />
-                        {/* <Inputfield text="Password" /> */}
-                        {/* <View style={[styles.inputfield,{justifyContent:'center'}]} >
-                        <Ionicons name="eye-off-outline" size={24} color="black" style={{position:'absolute',right:20,zIndex:1,}} />
-                        <TextInput style={{fontFamily:'Poppins'}}  placeholder="Password" secureTextEntry={true}
-                            onChangeText={(password) => { this.setState({ password }) }} 
-                            />
-                            </View> */}
-                        <TextInput style={styles.inputfield} placeholder={this.props.user.password} secureTextEntry={true}
-                            onChangeText={(password) => { this.setState({ password }) }}
-                        />
-                        {/* <Inputfield text="Confirm Password" /> */}
-                        <TextInput style={styles.inputfield} placeholder={this.props.user.password} secureTextEntry={true}
-                            onChangeText={(Cpassword) => { this.setState({ Cpassword }) }}
-                        />
+                        >
+                        </TextInput>
 
-                        {/* <Btn onPress={() => this.props.navigation.navigate('Login')}  text="Register" color='#000DAE' width="90%" /> */}
-                        <TouchableOpacity onPress={() => this.addToReduc()} style={styles.text} >
+            
+                        <TouchableOpacity onPress={() => this.updateUser()} style={styles.text} >
                             <Text style={{ color: 'white', }}>Confirm</Text>
                         </TouchableOpacity>
                         {/* <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
@@ -291,12 +205,12 @@ const mapState = state => {
     }
 
 }
-// const mapDispatch = dispatch => {
-//     return{
-//         _loggin:(param) => dispatch(_login(param)),
-//         setLoading: (bol) => dispatch (_setLoading(bol)),
-//     }
-// }
+const mapDispatch = dispatch => {
+    return {
+        _updateuser: (param, _id) => dispatch(_updateuser(param, _id)),
+        setLoading: (bol) => dispatch(_setLoading(bol)),
+    }
+}
 
 
-export default connect(mapState)(Edituser)
+export default connect(mapState, mapDispatch)(Edituser)

@@ -19,7 +19,7 @@ class Login extends React.Component {
         super();
         this.state = {
             text: '',
-            email: ' ',
+            email: '',
             password: '',
         }
     }

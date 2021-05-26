@@ -1,5 +1,5 @@
 import api from '../../api/api';
-import { login, update_user,  } from '../actions/authActions'
+import { login, updateuser, update_user, } from '../actions/authActions'
 // import { set_loading,  } from '../actions/globalActions' 
 import path from '../../api/path';
 
@@ -8,46 +8,48 @@ export const _login = (param) => {
     return async (dispatch, getState) => {
         // dispatch(set_loading(true))
 
-        
 
 
 
-        let response = await api(path.login,"POST",param)
-            
+
+        let response = await api(path.login, "POST", param)
+
         // console.log(response)
-       
-        if (response.success == true) { 
-            
+
+        if (response.success == true) {
            
-            
             dispatch(login(response.result))
-            
+
         }
         else {
             // response.success == "false"
             alert(response.success)
-            
 
-            
+
+
 
         }
-       
+
 
         // dispatch(set_loading(false));
         // return false
     }
 }
-export const _editUser = (user) => {
+export const _updateuser = (param, _id) => {
 
     return async (dispatch, getState) => {
 
-        // dispatch(set_loading(true))
-        let res = await api(path.update,"PATCH",param);
+      console.log(_id)
+        let response = await api(path.update +   _id, "PATCH", param);
+        console.log(response)
         // dispatch(set_loading(false));
-        if (res) {
+        // if (response.success == true) {
 
-            dispatch(update_user(user))
-            return true
-        }
+        //     dispatch(updateuser(response.result))
+        //     return true
+        // }
+        // else{
+        //     alert(response.success)
+        // }
     }
 }

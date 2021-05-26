@@ -30,7 +30,7 @@ const authReducer = (state = initialState, action) => {
                 return {
                     ...state,
                     
-                    type: UPDATE,   user: info
+                    type: UPDATE,   info: info
                 }
             }
      

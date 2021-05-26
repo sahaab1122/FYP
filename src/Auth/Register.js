@@ -88,7 +88,7 @@ class Register extends React.Component {
         if (this.state.password !== this.state.confirmPassword) {
             return alert('Password not match')
         }
-        this.props.setLoading(true)
+        // this.props.setLoading(true)
         let user = {
             firstName: this.state.Fname.trim(),
             lastName: this.state.Lname.trim(),
@@ -108,7 +108,7 @@ class Register extends React.Component {
 
 
         }
-        this.props.setLoading(false)
+        // this.props.setLoading(false)
     }
     // state = {
     //     firstName: '',

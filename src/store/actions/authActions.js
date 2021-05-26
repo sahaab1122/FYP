@@ -14,7 +14,7 @@ export const logout = () => (
     }
 )
 
-export const update_user = (info) => (
+export const updateuser = (info) => (
     {
         type: UPDATE,
         info: info
