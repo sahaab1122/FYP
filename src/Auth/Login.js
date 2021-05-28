@@ -19,8 +19,8 @@ class Login extends React.Component {
         super();
         this.state = {
             text: '',
-            email: '',
-            password: '',
+            email: 'Sahaabsabir6@gmail.com',
+            password: '123',
         }
     }
 
@@ -104,7 +104,7 @@ class Login extends React.Component {
     render() {
         return (
 
-            <View style={{ height: '100%' }}>
+            <View style={{ height: '100%', }}>
 
                 <ImageBackground resizeMode='stretch' source={require('../../assets/LogBack.png')} style={{
                     width: "100%", height: '100%', minHeight: Dimensions.get('window').height, position: 'absolute', alignItems: 'center',
@@ -113,7 +113,7 @@ class Login extends React.Component {
 
                 <ScrollView contentContainerStyle={{ minHeight: Dimensions.get('window').height, justifyContent: 'space-evenly' }} showsVerticalScrollIndicator={false} >
                     {/* <Text style={{ fontFamily: 'sp', fontSize: 23, textAlign: 'center',fontFamily:'Rock' }}>MUGHAL FURNITURE</Text> */}
-                    <Image source={require('../../assets/product/Logofinal.png')} style={{ width: "50%", height: '20%', alignSelf: 'center' }} />
+                    {/* <Image source={require('../../assets/product/Logofinal.png')} style={{ width: "50%", height: '20%', alignSelf: 'center' }} /> */}
                     {/* <Lets /> */}
                     <Middle />
 
@@ -136,11 +136,11 @@ class Login extends React.Component {
                             <Text style={{ color: 'white', }}>Login</Text>
                         </TouchableOpacity>
                         {/* <Btn onPress={() => this.props.navigation.navigate('Home')} text="Login" color='#000DAE' width="90%" /> */}
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
+                        {/* <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
                             <Btn text="Faceook" color='#97aabd' width="43%" />
                             <Btn text="Google" color='#97aabd' width="43%" />
 
-                        </View>
+                        </View> */}
 
                     </View>
                 </ScrollView>

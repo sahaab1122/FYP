@@ -1,16 +1,17 @@
 
 import React from 'react';
 // import { FontAwesome } from '@expo/vector-icons';
-import { ImageBackground, uri, StyleSheet, TextInput, View, TouchableOpacity, Text, SafeAreaView, KeyboardAvoidingView, Dimensions, Platform, ScrollView, Image } from 'react-native';
+import { ImageBackground, uri, StyleSheet, TextInput, View, TouchableOpacity, Text, SafeAreaView, KeyboardAvoidingView, Dimensions, Platform, ScrollView, Image, Alert } from 'react-native';
 // import Middle from '../component/Middle';
 import * as ImagePicker from 'expo-image-picker';
 
- 
+
 import { Entypo } from '@expo/vector-icons';
 
 import { connect } from 'react-redux';
 import { _login, _updateuser } from '../store/middlewares/authMiddleware';
-
+import firebase from "firebase"
+import { updateuser } from '../store/actions/authActions';
 
 class Edituser extends React.Component {
     constructor(props) {
@@ -20,7 +21,9 @@ class Edituser extends React.Component {
             lastName: "",
             city: "",
             phone: "",
-            id:props.user._id
+            avatar:"",
+            id: props.user._id,
+            
         }
     }
     componentDidMount() {
@@ -29,22 +32,41 @@ class Edituser extends React.Component {
         // this.setState({ lastName: user.lastName })
         // this.setState({ city: user.city })
         // this.setState({ phone: user.phone })  // let user = this.props.user
-      
+
     }
 
-    // openImagePickerAsync = async () => {
-    //     let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    openImagePickerAsync = async () => {
+         
+        let pickerResult = await ImagePicker.launchImageLibraryAsync({mediaTypes:ImagePicker.MediaTypeOptions.Images});
+
+        this.setState({ image: pickerResult.uri })
+
+    }
+
+    uploadImage = async (uri,) => { 
+        
+        const response = await fetch(uri);
+        const blob = await response.blob();
+        let folderName = 'avatar'
+        let fileName = this.props.user.email
+        var ref = firebase.storage().ref().child(folderName + "/" + fileName );
+         ref.put(blob) .then(() =>{
+            firebase.storage().ref().child(folderName + "/" + fileName ).getDownloadURL()
+            .then((URL) =>{
+                this.setState({avatar: URL},()=>{
+                this.updateUser()
+                })
+
+            })
+         })
+        // .catch(() =>{
+        //     alert("error")
+        // })
+    }
 
 
-    //     let pickerResult = await ImagePicker.launchImageLibraryAsync();
-       
-    //     this.setState({ image: pickerResult.uri })
-    // }
-    
 
- 
 
-     
     updateUser = async (e) => {
 
         // this.props.setLoading(true)
@@ -53,9 +75,10 @@ class Edituser extends React.Component {
             "lastName": this.state.Lname,
             "phone": this.state.phone,
             "city": this.state.city,
+            "avatar":this.state.avatar,
         }
-      
-      let res = await this.props._updateuser(param,this.state._id)
+
+        let res = await this.props._updateuser(param, this.state._id)
 
         // this.props.setLoading(false)
     }
@@ -94,8 +117,8 @@ class Edituser extends React.Component {
     // }
 
     render() {
-         
-         return (
+
+        return (
 
             <View style={{ height: '100%' }}>
 
@@ -109,8 +132,8 @@ class Edituser extends React.Component {
                     <Text style={{ fontFamily: 'sp', fontSize: 23, textAlign: 'center' }}>Edit your profile</Text>
 
 
-                    <TouchableOpacity onPress={this.openImagePickerAsync} style={{ backgroundColor: '#F5F8FA', borderRadius: 120, width: "27%", height: 110, justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
-                        <Image source={{ uri: this.state.image || null }} style={{ width: '100%', height: "100%" ,borderRadius:120}} />
+                    <TouchableOpacity onPress={this.openImagePickerAsync} style={{ backgroundColor: '#F5F8FA', borderRadius: 120, width: "27%", height: 100, justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
+                        <Image source={{ uri: this.state.image || null }} style={{ width: '100%', height: "102%", borderRadius: 120 }} />
                     </TouchableOpacity>
 
 
@@ -147,8 +170,8 @@ class Edituser extends React.Component {
                         >
                         </TextInput>
 
-            
-                        <TouchableOpacity onPress={() => this.updateUser()} style={styles.text} >
+
+                        <TouchableOpacity onPress={() => this.uploadImage(this.state.image)} style={styles.text} >
                             <Text style={{ color: 'white', }}>Confirm</Text>
                         </TouchableOpacity>
                         {/* <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>

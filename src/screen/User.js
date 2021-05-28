@@ -33,14 +33,19 @@ class User extends React.Component {
         return (
              
        
-            <View style={{padding:20,flex:1,justifyContent:'space-evenly'}}>
+            <View style={{padding:20,flex:1,justifyContent:'space-evenly',marginTop:7}}>
                 <TouchableOpacity onPress={()=> this.props.navigation.navigate('Edituser')}  style={{position:'absolute',right:25,top:25}}>
 
                 <MaterialCommunityIcons name="account-edit-outline" size={26} color="black" />
                 </TouchableOpacity>
                 <View style={{flexDirection:'row',justifyContent:'flex-start'}}>
+                {/* <View>
+                    <Text>
 
-              <Image style={{borderRadius:60,width:100,height:100}} source={   require('../../assets/profile.jpg')} />
+                    {this.props.user.avatar}
+                    </Text>
+                  </View>   */}
+              <Image style={{borderRadius:60,width:100,height:100}} source={{uri: this.props.user.avatar || null}} />
               <Text style={{fontFamily:'sf',paddingLeft:10,textAlignVertical:'center',fontSize:26}}>
                   {this.props.user.firstName}
                   

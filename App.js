@@ -5,7 +5,9 @@ import * as Font from 'expo-font'
 // import Todo from './src/screen/Todo';
 
 import WishList from './src/screen/Wishlist'
- import AppNavigator from './AppNavigator'
+ import AppNavigator from './AppNavigator';
+ import firebase from 'firebase';
+ 
 
 
 // import Rapp from './src/store/redux/Rapp';
@@ -73,3 +75,19 @@ class App extends React.Component {
   }
 }
 export default App
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyDu7aE3bFs7gQbg6NozhYjDXCKslOJh3ao",
+    authDomain: "furniture-app-caffc.firebaseapp.com",
+    projectId: "furniture-app-caffc",
+    storageBucket: "furniture-app-caffc.appspot.com",
+    messagingSenderId: "612108609367",
+    appId: "1:612108609367:web:ea15a0fbddf3116d014012",
+    measurementId: "G-3R92MWWJ0N"
+  };
+  // Initialize Firebase
+  if(!firebase.apps.length)
+  firebase.initializeApp(firebaseConfig);
+ 
