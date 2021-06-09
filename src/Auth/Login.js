@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { FontAwesome } from '@expo/vector-icons';
-import { ImageBackground, uri, StyleSheet, TextInput, View, TouchableOpacity, Text, Image, SafeAreaView, KeyboardAvoidingView, Dimensions, Platform, ScrollView } from 'react-native';
+import { ImageBackground, uri, StyleSheet, TextInput, View, TouchableOpacity, Text, Image, SafeAreaView, KeyboardAvoidingView, Dimensions, Platform, ScrollView, ActivityIndicator } from 'react-native';
 import Middle from '../component/Middle';
 import Btn from '../component/Btn';
 import Lets from '../component/Lets';
@@ -19,14 +19,15 @@ class Login extends React.Component {
         super();
         this.state = {
             text: '',
-            email: 'Sahaabsabir6@gmail.com',
-            password: '123',
+            email: 'Ali@gmail.com',
+            password: '12',
+            loading: false
         }
     }
 
 
 
-    addToReduc = async () => {
+    login = async () => {
 
         if (this.state.email == '') {
             alert('Please write Email')
@@ -40,7 +41,10 @@ class Login extends React.Component {
                 "email": this.state.email,
                 "password": this.state.password
             } 
-            this.props._login(param)
+          await  this.setState({loading:true})
+           await this.props._login(param)
+           this.setState({loading:false})
+
         }
 
 
@@ -55,7 +59,9 @@ class Login extends React.Component {
             "email": this.state.email,
             "password": this.state.password
         }
-        let res = await this.props._login(param)
+        await  this.setState({loading:true})
+        await this.props._login(param)
+        this.setState({loading:false})
                    
         // this.props.setLoading(false)
     }
@@ -132,8 +138,14 @@ class Login extends React.Component {
 
                             <Text style={{ alignSelf: 'flex-end', paddingHorizontal: 20, paddingTop: 10, color: 'blue' }}>Forget password</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.addToReduc()} style={styles.text} >
-                            <Text style={{ color: 'white', }}>Login</Text>
+                        <TouchableOpacity onPress={() => this.login()} style={styles.text} >
+                            {
+                                this.state.loading === true ? 
+                                <ActivityIndicator color="#fff" size="small" />
+                                :
+                                <Text style={{ color: 'white', }}>Login</Text> 
+                            
+                            }
                         </TouchableOpacity>
                         {/* <Btn onPress={() => this.props.navigation.navigate('Home')} text="Login" color='#000DAE' width="90%" /> */}
                         {/* <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>

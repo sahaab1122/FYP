@@ -28,10 +28,12 @@ class Edituser extends React.Component {
     }
     componentDidMount() {
         this.setState(this.props.user)
+        console.log(URL)
         // this.setState({ firstName: user.firstName })
         // this.setState({ lastName: user.lastName })
         // this.setState({ city: user.city })
         // this.setState({ phone: user.phone })  // let user = this.props.user
+        
 
     }
 
@@ -55,6 +57,8 @@ class Edituser extends React.Component {
             .then((URL) =>{
                 this.setState({avatar: URL},()=>{
                 this.updateUser()
+               
+                
                 })
 
             })
@@ -132,7 +136,7 @@ class Edituser extends React.Component {
                     <Text style={{ fontFamily: 'sp', fontSize: 23, textAlign: 'center' }}>Edit your profile</Text>
 
 
-                    <TouchableOpacity onPress={this.openImagePickerAsync} style={{ backgroundColor: '#F5F8FA', borderRadius: 120, width: "27%", height: 100, justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
+                    <TouchableOpacity onPress={this.openImagePickerAsync} style={{  borderRadius: 120, width: "27%", height: 100, justifyContent: 'center', alignItems: 'center', alignSelf: 'center' }}>
                         <Image source={{ uri: this.state.image || null }} style={{ width: '100%', height: "102%", borderRadius: 120 }} />
                     </TouchableOpacity>
 

@@ -6,4 +6,10 @@ export default {
     login: BASE_URL + 'login',
     register: BASE_URL + 'register',
     update: BASE_URL + 'update/',
+    getuser: BASE_URL + 'users',
+    itemsadd: BASE_URL +'items/add',
+    getitem: BASE_URL + 'items',
+    deleteitem: BASE_URL + 'items/delete',
+    categoriesadd: BASE_URL + 'categories/add',
+    getcategories: BASE_URL + 'categories'
 }

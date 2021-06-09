@@ -16,6 +16,7 @@ import { connect } from 'react-redux';
 import { _login } from '../store/middlewares/authMiddleware';
 
 class User extends React.Component {
+    // _isMounted = false;
     // componentDidMount() {
     //     console.log(this.props.user)
     //     alert(this.props.user.email)
@@ -133,6 +134,9 @@ class User extends React.Component {
                         Facebook
                     </Text>
                     </TouchableOpacity >
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Next')} style={styles.text} >
+                            <Text style={{ color: 'white',fontFamily:'Poppins' }}>Log Out</Text>
+                        </TouchableOpacity>
                     
 
 
@@ -142,7 +146,18 @@ class User extends React.Component {
     };
 }
 const styles = StyleSheet.create({
-
+    text: {
+        alignItems: 'center',
+        // alignSelf: 'flex-end',
+        justifyContent: 'center',
+        // alignSelf: 'center',
+        marginTop: 10,
+        height: 43,
+        backgroundColor: '#000DAE',
+        borderRadius: 3,
+        width: "50%",
+        
+    },
    row: {
         flexDirection: 'row',
         marginBottom: 10,
