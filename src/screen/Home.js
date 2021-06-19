@@ -31,61 +31,39 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            chair11: [
-                {
-                    name: 'Chair',
-                    price: '1600$',
-                    image: [
-                        sofa1, sofa2, sofa3
-                    ]
-                },
-                {
-                    name: 'Chair1',
-                    price: '1600$',
-                    image: [
-                        Chair1, Chair, Chair2
-                    ]
-                },
-                {
-                    name: 'Chair2',
-                    price: '1600$',
-                    image: [
-                        Chair1, Chair2, Chair
-                    ]
-                },
-                {
-                    name: 'Chair',
-                    price: '1600$',
-                    image: [
-                        Chair1, Chair, Chair2
-                    ]
-                }
-            ],
-            chair10:[
-                {
-                    name:'sofa',
-                    price:'400$',
-                    image:[
-                        Chair10,Chair11,Chair12
-                     ]
-                }
-
-        ],
-        chair12:[
-            {
-                name:'sofa',
-                price:'400$',
-                image:[sofa4,sofa5,sofa6 ]
-            }
-
-    ],
-        Chair14:[
-            {
-                name:'Lsofa',
-                price:'200$',
-                image:[sofa7,sofa3,sofa7]
-        }
-    ],
+        //     chair11: [
+        //         {
+        //             name: 'Chair',
+        //             price: '1600$',
+        //             decribtion:'',
+        //             image: [
+        //                 sofa1, sofa2, sofa3
+        //             ]
+        //         },
+        //         {
+        //             name: 'Chair1',
+        //             price: '1600$',
+        //             image: [
+        //                 Chair1, Chair, Chair2
+        //             ]
+        //         },
+        //         {
+        //             name: 'Chair2',
+        //             price: '1600$',
+        //             image: [
+        //                 Chair1, Chair2, Chair
+        //             ]
+        //         },
+        //         {
+        //             name: 'Chair',
+        //             price: '1600$',
+        //             image: [
+        //                 Chair1, Chair, Chair2
+        //             ]
+        //         }
+        //     ],
+           
+        
         Table1:[
             {
                 name:'Table',
@@ -132,6 +110,7 @@ class Home extends React.Component {
 // }
 
     render() {
+        // console.log(this.props.items)
          
         return (
             <View style={styles.Container}>
@@ -151,12 +130,12 @@ class Home extends React.Component {
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}  >
                         
                         
-                            {this.state.chair11.map((item, index) =>
+                            {/* {this.state.chair11.map((item, index) =>
                                 
                                     <Card navigation={this.props.navigation} item={item} key={index} />
                                 
                             )}
-                        
+                         */}
 
 
 

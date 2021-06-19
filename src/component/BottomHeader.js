@@ -24,7 +24,7 @@ export default (props) => {
                 <TouchableOpacity onPress={()=> props.navigation.navigate('Wishlist')}>
                 <Fontisto name="heart-alt" size={23} color="black" />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=> props.navigation.navigate('AddToCart')}>
+                <TouchableOpacity onPress={() =>  props.navigation.navigate('MyCart')}>
                 <FontAwesome name="opencart" size={24} color="black" />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={()=> props.navigation.navigate('User')}>

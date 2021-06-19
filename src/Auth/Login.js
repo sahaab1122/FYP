@@ -52,19 +52,19 @@ class Login extends React.Component {
 
     }
 
-    login = async (e) => {
+    // login = async (e) => {
         
-        // this.props.setLoading(true)
-        let param = {
-            "email": this.state.email,
-            "password": this.state.password
-        }
-        await  this.setState({loading:true})
-        await this.props._login(param)
-        this.setState({loading:false})
+    //     // this.props.setLoading(true)
+    //     let param = {
+    //         "email": this.state.email,
+    //         "password": this.state.password
+    //     }
+    //     await  this.setState({loading:true})
+    //     await this.props._login(param)
+    //     this.setState({loading:false})
                    
         // this.props.setLoading(false)
-    }
+    // }
     // }else{
     //   this.props.Login(this.state.text);
     // }

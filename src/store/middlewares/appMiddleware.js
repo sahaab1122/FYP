@@ -1,7 +1,7 @@
 import api from '../../api/api';
 import path from '../../api/path';
 // import { setError, setLoading } from '../actions/globalActions'
-import { set_items,  set_featured, set_user,set_categories  } from '../actions/appAction'
+import { set_items,  set_featured, set_user,set_categories,  } from '../actions/appAction'
 
 
 export const _getItems = () => {
@@ -15,16 +15,16 @@ export const _getItems = () => {
         }
     }
 }
-export const _getFeatured = () => {
+// export const _getFeatured = () => {
 
-    return async (dispatch, getState) => {
+//     return async (dispatch, getState) => {
 
-        let res = await api.getFeatured();
-        if (res) {
-            dispatch(set_featured(res.result))
-        }
-    }
-}
+//         let res = await api.getFeatured();
+//         if (res) {
+//             dispatch(set_featured(res.result))
+//         }
+//     }
+// }
 export const _getCategories = () => {
 
     return async (dispatch, getState) => {

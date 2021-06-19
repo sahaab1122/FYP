@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\sahaa\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-native-image-picker version 2.3.4
+  C:\Program Files\nodejs\node.exe C:\Users\sahaa\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add tipsi-strip
 
 PATH: 
   C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\sahaa\AppData\Local\Microsoft\WindowsApps;C:\Users\sahaa\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\sahaa\AppData\Roaming\npm;C:\Users\sahaa\AppData\Local\GitHubDesktop\bin;C:\Program Files\MongoDB\Server\4.4\bin;
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/2.3.4: Not found
+  Error: https://registry.yarnpkg.com/tipsi-strip: Not found
       at Request.params.callback [as _callback] (C:\Users\sahaa\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66988:18)
       at Request.self.callback (C:\Users\sahaa\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140662:22)
       at Request.emit (events.js:315:20)
@@ -48,7 +48,7 @@ npm manifest:
       "expo-font": "~8.4.0",
       "expo-image-picker": "~9.2.0",
       "expo-status-bar": "~1.0.3",
-      "firebase": "^8.6.2",
+      "firebase": "8.6.2",
       "react": "16.13.1",
       "react-dom": "16.13.1",
       "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",

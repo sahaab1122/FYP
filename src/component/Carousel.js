@@ -50,7 +50,7 @@ export const Carousal = ({ images, width, height, active, inActive }) => {
             >
                 {
                     images.map((img, index) =>
-                        <Image key={index} resizeMode='stretch' source={img} style={{ width: totalWidth, height: defaultHeight, }} />
+                        <Image key={index} resizeMode='stretch' source={{uri:img}} style={{ width: totalWidth, height: defaultHeight, }} />
                     )
                 }
 

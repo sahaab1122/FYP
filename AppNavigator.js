@@ -23,6 +23,7 @@ import Landing from './src/screen/Landing';
 import Categories from './src/screen/Categories';
 import CompleteOrder from './src/screen/CompleteOrder';
 import Edituser from './src/screen/Edituser'
+// import todoList from './src/screen/todoList'
 
 // import Todo from './src/screen/Todo';
 
@@ -89,12 +90,15 @@ class AppNavigator extends React.Component {
     AuthStack = () => {
         return (
             <Stack.Navigator headerMode="none" screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}>
+               {/* <Stack.Screen name="todoList" component={todoList} /> */}
                <Stack.Screen name="Landing" component={Landing} />
+              
                <Stack.Screen name="Next" component={Next} />
                <Stack.Screen name="RegisterLogin" component={RegisterLogin} />
                <Stack.Screen name="Login" component={Login} />
                <Stack.Screen name="Register" component={Register} />
                <Stack.Screen name="Forgetpass" component={Forgetpass} />
+               <Stack.Screen name="SuccessfulRegister" component={SuccessfulRegister} />
             </Stack.Navigator>
         )
     }
@@ -113,7 +117,6 @@ class AppNavigator extends React.Component {
             <Stack.Screen name="User" component={User} />
             <Stack.Screen name="Edituser"component={Edituser} />
             <Stack.Screen name="Wishlist" component={Wishlist} />
-            <Stack.Screen name="SuccessfulRegister" component={SuccessfulRegister} />
             
             <Stack.Screen name="Categories" component={Categories } />
             <Stack.Screen name="CompleteOrder" component={CompleteOrder} />

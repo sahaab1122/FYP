@@ -14,6 +14,7 @@ import { Link } from '@react-navigation/native';
 import { dispatch } from 'rxjs/internal/observable/pairs';
 import { connect } from 'react-redux';
 import { _login } from '../store/middlewares/authMiddleware';
+import { logout } from '../store/actions/authActions';
 
 class User extends React.Component {
     // _isMounted = false;
@@ -31,8 +32,8 @@ class User extends React.Component {
         }
     }
     render() {
+        console.log(this.props.user)
         return (
-             
        
             <View style={{padding:20,flex:1,justifyContent:'space-evenly',marginTop:7}}>
                 <TouchableOpacity onPress={()=> this.props.navigation.navigate('Edituser')}  style={{position:'absolute',right:25,top:25}}>
@@ -134,7 +135,7 @@ class User extends React.Component {
                         Facebook
                     </Text>
                     </TouchableOpacity >
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Next')} style={styles.text} >
+                    <TouchableOpacity onPress={() => this.props.logout()} style={styles.text} >
                             <Text style={{ color: 'white',fontFamily:'Poppins' }}>Log Out</Text>
                         </TouchableOpacity>
                     
@@ -174,8 +175,8 @@ const mapState = state => {
 }
 const mapDispatch = dispatch =>{
     return{
-        _login:(param) => dispatch(_login(param)),
-        setLoading: (bol) => dispatch(_setLoading(bol)),
+        logout:() => dispatch(logout()),
+        // setLoading: (bol) => dispatch(_setLoading(bol)),
 
 
     }

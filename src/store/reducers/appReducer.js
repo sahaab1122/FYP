@@ -1,4 +1,4 @@
-import { SET_CATEGORIES, SET_ITEMS, SET_USERS, } from '../actions/Types'
+import { SET_CATEGORIES, SET_ITEMS, SET_USERS, SET_FAVOURITE } from '../actions/Types'
 
 const initialState = {
     categories: [], items: [], featured: [],
@@ -21,12 +21,12 @@ const appReducer = (state = initialState, action) => {
                 categories: action.payload,
             }
         }
-        // case SET_FAVOURITE: {
-        //     return {
-        //         ...state,
-        //         favourites: action.payload,
-        //     }
-        // }
+        case SET_FAVOURITE: {
+            return {
+                ...state,
+                favourites: action.payload,
+            }
+        }
         // case SET_FEATURED: {
         //     return {
         //         ...state,
