@@ -1,4 +1,4 @@
-import { ADD_TO_CART, ADD_QUANTITY_TO_CART, REMOVE_ITEM_CART, REMOVE_CART } from '../actions/Types'
+import { ADD_TO_CART, ADD_QUANTITY_TO_CART, REMOVE_ITEM_CART, REMOVE_CART } from '../actions/types'
 // import update from 'immutability-helper';
 
 const initialState = {
@@ -10,16 +10,17 @@ export default (state = initialState, action) => {
     case ADD_TO_CART: {
       let allProducts = state.products
       let modifier = state.products.findIndex((product) => {
-        return product?.itemID == action?.payload?.itemID
+        return product?._id == action?.payload?._id
       })
 
       if (modifier !== -1 && allProducts?.length) {
         //
       } else {
-        action.payload.quantity = 1
+        let product=action.payload.product
+        product.quantity = 1
         return {
           ...state,
-          products: state.products.concat(action.payload),
+          products: state.products.concat(product),
         }
       }
     }
@@ -28,7 +29,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         products: state.products.map((pro) =>
-          pro.itemID === action.payload.id
+          pro._id === action.payload._id
             ? { ...pro, quantity: action.payload.quantity }
             : pro
         ),
@@ -43,7 +44,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         products: state.products.filter(
-          (item) => item.itemID !== action.payload
+          (item) => item._id !== action.payload
         ),
       }
    

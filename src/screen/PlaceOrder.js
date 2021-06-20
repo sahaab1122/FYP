@@ -6,18 +6,30 @@ import { Entypo } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
 import Btn from '../component/Btn';
 import Smallchair from '../component/Smallchair';
+import { connect } from 'react-redux';
 
 
 class PlaceOrder extends React.Component {
+
+    getTotal = () => {
+        let total = 0
+        let products = this.props.products;
+        products.forEach(item => {
+            total = total + item.price * item.quantity
+        })
+        return total
+
+    }
+
     render() {
         return (
 
             <View style={{ backgroundColor: '#fff', flex: 1, justifyContent: 'space-evenly', padding: 20 }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                   <TouchableOpacity onPress={()=> this.props.navigation.goBack()}>
-                       <Entypo name="cross" size={24} color="black" />
-                       
-                       </TouchableOpacity> 
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+                        <Entypo name="cross" size={24} color="black" />
+
+                    </TouchableOpacity>
                     <Entypo name="plus" size={24} color="black" />
                 </View>
                 <View>
@@ -28,7 +40,7 @@ class PlaceOrder extends React.Component {
                     <View style={{ flexDirection: 'row' }}><EvilIcons name="location" size={24} color="black" />
                         <Text>
                             Shipping
-                    </Text>
+                        </Text>
                     </View>
                     <View >
                         <Entypo name="plus" size={24} color="black" />
@@ -43,18 +55,20 @@ class PlaceOrder extends React.Component {
                 </View>
                 <View style={{ borderBottomWidth: 1, height: 5, width: '100%', borderBottomColor: '#97aabd' }} />
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ flexGrow: 0 }} >
-                    <View style={{ padding: 20, paddingLeft: 0 }}><Smallchair /></View>
-                    <View style={{ padding: 20 }}><Smallchair /></View>
-                    <View style={{ padding: 20 }}><Smallchair /></View>
+                    {
+                        this.props.products.map((item, index) =>
+                            <View key={index} style={{ padding: 20 }}><Smallchair item={item} /></View>
+                        )
+                    }
                 </ScrollView>
 
                 <View style={{ borderBottomWidth: 1, height: 5, width: '100%', borderBottomColor: '#97aabd' }} />
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                     <Text>Total:</Text>
-                    <Text>$900</Text>
+                    <Text>{this.getTotal()}</Text>
                 </View>
                 <View  >
-                    <Btn onPress={()=> this.props.navigation.navigate('CompleteOrder')} text="Place Order" color='#000DAE' width="100%" />
+                    <Btn onPress={() => this.props.navigation.navigate('CompleteOrder')} text="Place Order" color='#000DAE' width="100%" />
                 </View>
 
 
@@ -68,33 +82,11 @@ class PlaceOrder extends React.Component {
 
     }
 }
+const mapState = state => {
+    return {
+        products: state.cartReducer.products,
 
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export default PlaceOrder
+export default connect(mapState,)(PlaceOrder)

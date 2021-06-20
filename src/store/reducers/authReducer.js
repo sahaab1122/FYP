@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux';
 // import { update_user } from '../actions/authActions';
-import { LOGIN, UPDATE ,LOGOUT} from '../actions/Types';
+import { LOGIN, UPDATE ,LOGOUT} from '../actions/types';
 
 
 const initialState = {

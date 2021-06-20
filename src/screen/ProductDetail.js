@@ -20,7 +20,7 @@ class AddToCart extends React.Component {
     }
     render() {
 
-        const item = this.props.route.params.item
+        const product = this.props.route.params.item
         return (
             <View style={{ flex: 1, backgroundColor: '#fff' }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 30 }}>
@@ -28,15 +28,15 @@ class AddToCart extends React.Component {
                     <TouchableOpacity onPress={()=> this.props.navigation.navigate('MyCart')}><FontAwesome5 name="location-arrow" size={20} color="#A8A8A8" /></TouchableOpacity>
                 </View>
 
-                <Carousal active='#000' inActive='#D9D9D9' height={300} images={item.image} />
+                <Carousal active='#000' inActive='#D9D9D9' height={300} images={product.image} />
 
 
 
                 <Text style={{ paddingHorizontal: 20, fontSize: 28, fontFamily: 'Poppins' }}>
-                    Name: {item.name}
+                    Name: {product.name}
                 </Text>
                 <Text style={{ paddingHorizontal: 20, fontSize: 15, fontFamily: 'Poppins', color: '#5A5A5A' }}>
-                    Price: {item.price}
+                    Price: {product.price}
                 </Text>
                 <View>
                     <Text style={{ fontSize: 20, paddingTop: 10, paddingHorizontal: 20 }}>
@@ -44,7 +44,7 @@ class AddToCart extends React.Component {
                     </Text>
                     <Text style={{ paddingHorizontal: 20, color: '#5A5A5A' }}>
 
-                        {item.description}
+                        {product.description}
                     </Text>
 
 
@@ -54,10 +54,10 @@ class AddToCart extends React.Component {
                 {/* <Btn onPress={()=>this.props.navigation.navigate('MyCart')} text="Add to Cart" color='#000DAE' width="100%" /> */}
 
 
-                <View style={{ flex: .8, justifyContent: 'flex-end' }}>
+                <View style={{ flex: 0.8, justifyContent: 'flex-end' }}>
 
 
-                    <AddCart />
+                    <AddCart product={product} />
                 </View>
 
 

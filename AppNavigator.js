@@ -6,10 +6,10 @@ import * as Font from 'expo-font'
 import SplashScreen from  "react-native-splash-screen";
 
 // import Forgetpass from './src/screen/Forgetpass';
-import AddToCart from './src/screen/AddToCart';
+import ProductDetail from './src/screen/ProductDetail';
 import Home from './src/screen/Home';
 import Login from './src/Auth/Login'
-import MyCart from './src/screen/MyCart';
+import MyCart from './src/screen/Mycart';
 import Next from './src/screen/Next';
 import PlaceOrder from './src/screen/PlaceOrder'
 import Register from './src/Auth/Register';
@@ -22,27 +22,7 @@ import SuccessfulRegister from './src/screen/SuccessfulRegister';
 import Landing from './src/screen/Landing';
 import Categories from './src/screen/Categories';
 import CompleteOrder from './src/screen/CompleteOrder';
-import Edituser from './src/screen/Edituser'
-// import todoList from './src/screen/todoList'
-
-// import Todo from './src/screen/Todo';
-
-import WishList from './src/screen/Wishlist'
-
-
-
-// import Rapp from './src/store/redux/Rapp';
-// import AddCart from './src/component/AddCart'
-// import BottomHeader from './src/component/BottomHeader';
-// import Btn from './src/component/Btn';
-// import Card from './src/component/Card';
-// import Carousel from './src/component/Carousel';
-// import CartPrice from './src/component/CartPrice';
-// import EmptyCart from './src/component/EmptyCart';
-// import Inputfield from './src/component/Inputfield';
-// import Lets from './src/component/Lets';
-// import Middle from './src/component/Middle';
-// import Smallchair from './src/component/Smallchair';
+import Edituser from './src/screen/Edituser' 
 
 import { ActivityIndicator, Text, View } from 'react-native';
 // import Counter from './src/store/redux/Counter';
@@ -56,15 +36,7 @@ import { connect } from 'react-redux';
  
 
  
-const Stack = createStackNavigator();
-
-
-
-
-
- 
-
-
+const Stack = createStackNavigator(); 
   
 
 
@@ -106,7 +78,7 @@ class AppNavigator extends React.Component {
         return (
             <Stack.Navigator headerMode="none" screenOptions={{ ...TransitionPresets.SlideFromRightIOS, gestureEnabled: true, gestureDirection: 'horizontal' }}>
             <Stack.Screen name="Home" component={Home} />
-            <Stack.Screen name="AddToCart" component={AddToCart} />
+            <Stack.Screen name="AddToCart" component={ProductDetail} />
          
             <Stack.Screen name="MyCart" component={MyCart} />
            

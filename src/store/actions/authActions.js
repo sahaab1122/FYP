@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, UPDATE,   } from './Types';
+import { LOGIN, LOGOUT, UPDATE,   } from './types';
 
 
 export const login = (  user) => (

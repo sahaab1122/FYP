@@ -5,31 +5,31 @@ import { FontAwesome } from '@expo/vector-icons';
 import Btn from './Btn';
 import AddCart from './AddCart';
 import AddToFavorite from './AddToFavorite';
-export default (props) => {
+export default ({ item }) => {
     return (
-      
-            <View style={{  height: 100, justifyContent: 'center', width: '90%', alignSelf: 'center',backgroundColor:'#F5F8FA' }}>
-                <View style={{ position: 'absolute', right: 10, top: 10 }}><AddToFavorite /></View>
-                <View style={{ paddingLeft: 10, flexDirection: 'row' }}>
-                    <Image source={require('../../assets/Cartprice.png')} style={{ alignSelf: 'center',height:'100%',width:'25%' }} />
-                 
-                 
-                    <View style={styles.thrdview}>
 
-                        <Text style={{ fontSize: 16 }}>Scoutch Premium  </Text>
-                        <Text style={{ fontSize: 11 }}>$1600</Text> 
+        <View style={{ height: 100, justifyContent: 'center', width: '90%', alignSelf: 'center', backgroundColor: '#F5F8FA' }}>
+            <View style={{ position: 'absolute', right: 10, top: 10 }}><AddToFavorite /></View>
+            <View style={{ paddingLeft: 10, flexDirection: 'row' }}>
+                <Image source={{ uri: item.image[0] }} style={{ alignSelf: 'center', height: '100%', width: '25%' }} />
 
-                            
-                                <AddCart />
 
-                            
- 
-                    </View>
+                <View style={styles.thrdview}>
+
+                    <Text style={{ fontSize: 16 }}>{item.name}</Text>
+                    <Text style={{ fontSize: 11 }}>{item.price}</Text>
+
+
+                    <AddCart product={item} />
+
+
+
                 </View>
             </View>
+        </View>
 
 
-     
+
 
     )
 }
@@ -52,8 +52,8 @@ const styles = StyleSheet.create({
     },
     thrdview: {
         padding: 10,
-   
-        flex:1
+
+        flex: 1
 
     },
 

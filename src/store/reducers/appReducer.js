@@ -1,4 +1,4 @@
-import { SET_CATEGORIES, SET_ITEMS, SET_USERS, SET_FAVOURITE } from '../actions/Types'
+import { SET_CATEGORIES, SET_ITEMS, SET_USERS, SET_FAVOURITE } from '../actions/types'
 
 const initialState = {
     categories: [], items: [], featured: [],

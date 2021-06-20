@@ -1,4 +1,4 @@
-import { SET_CATEGORIES, SET_CATEGORY, SET_FAVOURITE,  SET_ITEMS,  SET_USERS } from "./Types";
+import { SET_CATEGORIES, SET_CATEGORY, SET_FAVOURITE,  SET_ITEMS,  SET_USERS } from "./types";
 
 export const set_categories = (payload) => (
     {
