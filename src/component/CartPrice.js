@@ -11,7 +11,7 @@ export default ({ item }) => {
         <View style={{ height: 100, justifyContent: 'center', width: '90%', alignSelf: 'center', backgroundColor: '#F5F8FA' }}>
             <View style={{ position: 'absolute', right: 10, top: 10 }}><AddToFavorite /></View>
             <View style={{ paddingLeft: 10, flexDirection: 'row' }}>
-                <Image source={{ uri: item.image[0] }} style={{ alignSelf: 'center', height: '100%', width: '25%' }} />
+                <Image source={{ uri: item.image[0] }} style={{ alignSelf: 'center', height: '100%', width: '35%' }} />
 
 
                 <View style={styles.thrdview}>

@@ -127,7 +127,7 @@ class Register extends React.Component {
     render() {
         return (
 
-            <View style={{ height: '100%' }}>
+            <View style={{ height: '100%',paddingTop:20 }}>
 
                 <ImageBackground resizeMode='stretch' source={require('../../assets/LogBack.png')} style={{
                     width: "100%", height: '100%', minHeight: Dimensions.get('window').height, position: 'absolute', alignItems: 'center',
@@ -180,8 +180,8 @@ class Register extends React.Component {
                             <Text style={{ color: 'white', }}>Register</Text>
                         </TouchableOpacity>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-                            <Btn text="FaceBook" color='#97aabd' width="43%" />
-                            <Btn text="Google" color='#97aabd' width="43%" />
+                            {/* <Btn text="FaceBook" color='#97aabd' width="43%" />
+                            <Btn text="Google" color='#97aabd' width="43%" /> */}
 
                         </View>
 

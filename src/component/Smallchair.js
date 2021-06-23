@@ -13,9 +13,8 @@ export default ({ item }) => {
 
         <View style={{ flexDirection: 'row', backgroundColor: '#f5f8fa', width: 200, height: 80, alignItems: 'center' }}>
 
-            <TouchableOpacity >
-                <Image source={require('../../assets/SmallChair.png')} />
-            </TouchableOpacity>
+            <Image source={{ uri: item.image[0] }} style={{ height: '55%', width: '25%' }} />
+
             <View >
                 <Text style={{ fontSize: 16, paddingRight: 20 }}>{item.name}</Text>
                 <Text style={{ fontSize: 11, paddingRight: 20 }}>{item.price} x {item.quantity}</Text>

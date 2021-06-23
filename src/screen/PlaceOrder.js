@@ -7,6 +7,7 @@ import { EvilIcons } from '@expo/vector-icons';
 import Btn from '../component/Btn';
 import Smallchair from '../component/Smallchair';
 import { connect } from 'react-redux';
+import { removeCart } from '../store/actions/cartAction';
 
 
 class PlaceOrder extends React.Component {
@@ -21,7 +22,14 @@ class PlaceOrder extends React.Component {
 
     }
 
-    render() {
+        // let response = await api(path.addOrder, "POST", param)
+        // // alert(response.message)
+        // console.log(response.message)
+        // alert(response.message)
+    
+    
+ 
+    render() { 
         return (
 
             <View style={{ backgroundColor: '#fff', flex: 1, justifyContent: 'space-evenly', padding: 20 }}>
@@ -88,5 +96,11 @@ const mapState = state => {
 
     }
 }
-
-export default connect(mapState,)(PlaceOrder)
+const mapDispatch = dispatch => {
+    return {
+      removeCart: () => dispatch(removeCart()),
+    
+   
+    }
+  }
+export default connect(mapState,mapDispatch)(PlaceOrder)
