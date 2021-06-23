@@ -57,15 +57,15 @@ class PlaceOrder extends React.Component {
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
 
-                    <Btn text="Home" color="#00086D" width='48%' />
-                    <Btn text="JOB" color="#000" width='48%' />
+                    {/* <Btn text="Home" color="#00086D" width='48%' /> */}
+                    <Btn text="JOB" color="#000" width='78%' />
 
                 </View>
                 <View style={{ borderBottomWidth: 1, height: 5, width: '100%', borderBottomColor: '#97aabd' }} />
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ flexGrow: 0 }} >
+                <ScrollView horizontal={false} showsVerticalScrollIndicator={false} style={{ flexGrow: 0 }} >
                     {
                         this.props.products.map((item, index) =>
-                            <View key={index} style={{ padding: 20 }}><Smallchair item={item} /></View>
+                            <View key={index} style={{ padding: 10 }}><Smallchair item={item} /></View>
                         )
                     }
                 </ScrollView>

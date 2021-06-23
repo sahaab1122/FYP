@@ -110,19 +110,20 @@ class Home extends React.Component {
 // }
 
     render() {
-        // console.log(this.props.items)
+        console.log(this.props.items)
          
+        // <TouchableOpacity onPress={()=> this.props.navigation.navigate('Categories')} style={{ padding: 20 }}><Text>Table</Text></TouchableOpacity>
         return (
             <View style={styles.Container}>
                 <BottomHeader navigation={this.props.navigation} btm={50} />
                 <Inputfield text='Search Now' />
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                        <TouchableOpacity style={{ padding: 20 }}><Text style={{ fontFamily: 'sp', fontSize: 12 }}>Chair.</Text></TouchableOpacity>
-                        <TouchableOpacity   style={{ padding: 20 }}><Text>Cupboard</Text></TouchableOpacity>
-                        <TouchableOpacity onPress={()=> this.props.navigation.navigate('Categories')} style={{ padding: 20 }}><Text>Table</Text></TouchableOpacity>
-                        <TouchableOpacity style={{ padding: 20 }}><Text>Accesso</Text></TouchableOpacity>
-                        <TouchableOpacity style={{ padding: 20 }}><Text>Furniture</Text></TouchableOpacity>
-                        <TouchableOpacity style={{ padding: 20 }}><Text>Elighte</Text></TouchableOpacity>
+                        <TouchableOpacity style={{ padding: 20 }}><Text style={{ fontFamily: 'sp', fontSize: 12 }}>
+                            Chair
+                        </Text></TouchableOpacity>
+ 
+                         
+ 
 
                     </ScrollView>
                 <ScrollView style={{ paddingHorizontal: 20, }}  >
@@ -193,7 +194,7 @@ class Home extends React.Component {
                             Cupboard
                         </Text>
                     </View>
-                    <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
+                    {/* <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
                         {this.state.Table1.map((item,index)=>
                         <Card navigation={this.props.navigation} item={item} key={index} />
                         )}
@@ -203,6 +204,16 @@ class Home extends React.Component {
                         )
                             
                         }
+                    </View> */}
+                    <View style={{ flexDirection: 'row',flexWrap:"wrap", justifyContent: "space-between", }}>
+                       {
+                           this.props.items.map((item,index) => 
+                           <Card navigation={this.props.navigation} item={item} key={index}    />
+                           
+                           )
+                       }
+                  
+                          
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: "space-around", }}>
                         {/* <Card /> */}
@@ -243,7 +254,7 @@ const mapState = state => {
     return {
         // logged: state.authReducer.logged,
         // items: state.appReducer.items,
-        categories: state.appReducer.categories,
+        // categories: state.appReducer.categories,
         items: state.appReducer.items,
 
     }
@@ -252,7 +263,7 @@ const mapDispatch = dispatch =>{
     return{
         // _getItem: () => dispatch(_getItems()),
         // setLoading: (bol) => dispatch(_setLoading(bol)),
-        _getCategories: () => dispatch(_getCategories()),
+        // _getCategories: () => dispatch(_getCategories()),
         _getItems: () => dispatch(_getItems())
 
     }
