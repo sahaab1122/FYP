@@ -8,7 +8,8 @@ import Btn from '../component/Btn';
 import Smallchair from '../component/Smallchair';
 import { connect } from 'react-redux';
 import { removeCart } from '../store/actions/cartAction';
-
+import path from '../api/path';
+import api from '../api/api'
 
 class PlaceOrder extends React.Component {
 
@@ -21,13 +22,28 @@ class PlaceOrder extends React.Component {
         return total
 
     }
+     placeOrder = async()=> {
+let param={
+    "orderNo":Math.round(Math.random()+1000),
 
-        // let response = await api(path.addOrder, "POST", param)
-        // // alert(response.message)
-        // console.log(response.message)
-        // alert(response.message)
-    
-    
+    "price":this.getTotal(),
+   "user":this.props.user._id,
+    "items":this.props.products.map(p=>p._id),
+    "status":"PENDING",
+   "orderDate":new Date().toISOString()
+
+
+}
+         let response = await api(path.addorder, "POST", param)
+     if(response.success){
+this.props.navigation.navigate('CompleteOrder')
+     }
+     else {
+         alert(response.message)
+     }
+         
+        }
+         
  
     render() { 
         return (
@@ -76,7 +92,7 @@ class PlaceOrder extends React.Component {
                     <Text>{this.getTotal()}</Text>
                 </View>
                 <View  >
-                    <Btn onPress={() => this.props.navigation.navigate('CompleteOrder')} text="Place Order" color='#000DAE' width="100%" />
+                    <Btn onPress={() =>this.placeOrder()} text="Place Order" color='#000DAE' width="100%" />
                 </View>
 
 
@@ -93,6 +109,7 @@ class PlaceOrder extends React.Component {
 const mapState = state => {
     return {
         products: state.cartReducer.products,
+        user: state.authReducer.user
 
     }
 }
