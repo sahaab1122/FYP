@@ -41,32 +41,7 @@ class Wishlist extends React.Component {
                 </View> */}
                 <ScrollView showsVerticalScrollIndicator={true}>
 
-                <View style={{paddingTop:10}}>
-                    <CartPrice />
-                </View>
-                <View style={{paddingTop:10}}>
-                    <CartPrice />
-                </View>
-                <View style={{paddingTop:10}}>
-                    <CartPrice />
-                </View>
-                <View style={{paddingTop:10}}>
-                    <CartPrice />
-                </View>
-                <View style={{paddingTop:10}}>
-                    <CartPrice />
-                </View>
-                <View style={{paddingTop:10}}>
-                    <CartPrice />
-                </View>
-                <View style={{paddingTop:10}}>
-                    <CartPrice />
-                </View><View style={{paddingTop:10}}>
-                    <CartPrice />
-                </View>
-                <View style={{paddingTop:10}}>
-                    <CartPrice />
-                </View>
+                
                 </ScrollView>
                 <View style={{position: 'absolute',zIndex:10,bottom:80,alignSelf:'center',textAlign:'center',width:'80%'    }}>
             <Btn onPress={()=>this.props.navigation.navigate('MyCart')} text="Add all to Cart" color='#000DAE' width="100%" />
