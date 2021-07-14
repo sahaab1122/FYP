@@ -3,6 +3,8 @@ import React from 'react';
 import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons';
 import { Transitioning } from 'react-native-reanimated';
+import { connect } from 'react-redux';
+import { set_favourite } from '../store/actions/appAction';
 
 class AddToFavorite extends React.Component {
     constructor(props) {
@@ -12,43 +14,53 @@ class AddToFavorite extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     this.findFav()
-    // }
-
-    toggleFav = () => {
-        // this.props.setLoading(true)
-        // let uid = this.props.user.userID
-        // let itemID = this.props.item.itemID
-        if (this.state.heart) {
+    componentDidMount() {
+        this.findFav()
+    }
 
 
-            this.setState({ heart: false, })
 
 
+
+    findFav = () => {
+        let index = this.props.fav.findIndex(item => item._id === this.props.item._id)
+        if (index >= 0) {
+            this.setState({ heart: true })
         }
         else {
 
-
-            this.setState({ heart: true, })
-
-
+            this.setState({ heart: false })
         }
 
+    }
+
+    handleChange = () => {
+        if (this.state.heart === true) {
+            let temp = this.props.fav.filter(item => item._id !== this.props.item._id)
+            this.props.setFav(temp)
+        }
+        else {
+            this.props.setFav([...this.props.fav, this.props.item])
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.fav !== this.props.fav) {
+            this.findFav()
+        }
     }
 
     render() {
         return (
 
 
-            <TouchableOpacity onPress={() => this.toggleFav()}>
+            <TouchableOpacity onPress={this.handleChange}>
 
-                {this.state.heart === true ?
-
-
-                    <  FontAwesome name="heart" size={25} color="black" />
-                    :
-                    < FontAwesome name="heart-o" size={25} color="black" />
+                {
+                    this.state.heart === true ?
+                        <FontAwesome name="heart" size={25} color="black" />
+                        :
+                        <FontAwesome name="heart-o" size={25} color="black" />
 
 
                 }
@@ -64,22 +76,24 @@ class AddToFavorite extends React.Component {
     }
 
 }
-// const mapState = state => {
-// return {
-//     fav: state.appReducer.favourites,
-//     loading: state.globalReducer.loading,
-//     token: state.authReducer.token,
-//     user: state.authReducer.user,
-// }
-// }
-// const mapDispatch = dispatch => {
-// return {
-//     _getFav: (token, uid) => dispatch(_getFavourite(token, uid)),
-//     setLoading: bol => dispatch(set_loading(bol))
-// }
-// }
+const mapState = state => {
+    return {
+        fav: state.appReducer.favourites,
+        // loading: state.globalReducer.loading,
+        // token: state.authReducer.token,
+        // user: state.authReducer.user,
+    }
+}
+const mapDispatch = dispatch => {
+    return {
+        // _getFav: (token, uid) => dispatch(_getFavourite(token, uid)),
+        setFav: favs => dispatch(set_favourite(favs))
 
-export default AddToFavorite;
+        // setLoading: bol => dispatch(set_loading(bol))
+    }
+}
+
+export default connect(mapState, mapDispatch)(AddToFavorite);
 
 
 
