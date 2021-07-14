@@ -152,6 +152,7 @@ class Home extends React.Component {
                             this.state.active===item.categoryID &&
                                 <Card navigation={this.props.navigation} item={item} key={index} />
 
+                                
                             )
                         }
 
